@@ -1,0 +1,13 @@
+.nav-link{
+    margin-left:15px;
+    margin-right:15px;
+    color: aliceblue !important; 
+}
+
+@media (max-width: 991.98px){
+    .ftco-navbar-light {
+        background: #000 !important;
+        position: relative;
+        top: 0;
+    }
+}

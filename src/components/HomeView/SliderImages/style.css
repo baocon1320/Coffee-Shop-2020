@@ -1,0 +1,9 @@
+@media (min-width: 800.98px) {
+  .caption-pos {
+    top: 20%;
+    text-align: center;
+  }
+}
+.carousel-caption button {
+  margin: 10px;
+}

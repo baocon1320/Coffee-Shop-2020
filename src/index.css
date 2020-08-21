@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.subheading{
+  font-family: "Great Vibes", cursive;
+  font-size: 30px;
+  color: #c49b63;
+}
