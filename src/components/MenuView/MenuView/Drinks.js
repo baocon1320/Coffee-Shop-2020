@@ -14,7 +14,7 @@ const Drinks = () => {
             height={70}
             style={{ borderRadius: "50%" }}
           />
-          <div class="media-body">
+          <div class="media-body text-secondary">
             <h5 class="mt-0">
               {image.title}{" "}
               <span class="text-muted">...............{image.price}</span>

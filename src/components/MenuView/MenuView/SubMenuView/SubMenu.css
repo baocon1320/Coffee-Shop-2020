@@ -1,0 +1,66 @@
+.SubMenu {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  padding-top: 8rem;
+}
+
+.subheading {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: -23px;
+  z-index: 1;
+  display: block;
+}
+
+.intro-menu {
+  font-size: 3.4rem;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.description-menu {
+  font-size: 1.1rem;
+  color: #f8f9fa;
+}
+
+.navbar {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  list-style: none;
+}
+
+.menu-list {
+  border-bottom: 1px solid rgb(194, 154, 100);
+  padding: 0.6rem;
+  color: rgb(194, 154, 100);
+  transition: color 1s;
+  transition: background 1s;
+}
+
+.menu-list:hover {
+  background: rgb(194, 154, 100);
+  color: black;
+  cursor: pointer;
+}
+
+.SubMenuItems {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  flex-wrap: wrap;
+  margin: auto;
+  gap: 1rem;
+}
