@@ -5,6 +5,7 @@ import image3 from "../../../resouces/images/backgroundImages/bg_3.jpg";
 import Desserts from "./Desserts";
 import Drinks from "./Drinks.js";
 import SubMenuView from "./SubMenuView/SubMenuView";
+import Footer from "../../CommonView/Footer/Footer";
 class MenuView extends Component {
   render() {
     return (
@@ -21,6 +22,7 @@ class MenuView extends Component {
           </div>
         </div>
         <SubMenuView />
+        <Footer />
       </div>
     );
   }

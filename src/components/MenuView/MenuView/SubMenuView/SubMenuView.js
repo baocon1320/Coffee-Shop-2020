@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import SubMenuDesserts from "./SubMenuDesserts";
 import SubMenuDrinks from "./SubMenuDrinks";
-import "./SubMenu.css";
+import "./SubMenu.scss";
 const SubMenuView = () => {
+  const [isShown, setIsShown] = useState(false);
+
   return (
     <div className="SubMenu">
       <div class="col-md-7 mx-auto">
@@ -16,7 +18,11 @@ const SubMenuView = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <ul className="navbar-list">
-            <li className="menu-list">
+            <li
+              className="menu-list"
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
+            >
               <a>Desserts</a>
             </li>
             <li className="menu-list">
@@ -37,7 +43,8 @@ const SubMenuView = () => {
           </ul>
         </div>
       </nav> */}
-      <SubMenuDesserts />
+
+      {isShown && <SubMenuDesserts />}
       <SubMenuDrinks />
     </div>
   );
