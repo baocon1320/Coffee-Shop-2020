@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import SubMenuDesserts from "./SubMenuDesserts";
-import SubMenuDrinks from "./SubMenuDrinks";
-import "./SubMenu.scss";
+import React, { useState } from 'react';
+import SubMenuDesserts from './SubMenuDesserts';
+import SubMenuDrinks from './SubMenuDrinks';
+import './SubMenu.scss';
 const SubMenuView = () => {
   const [isShown, setIsShown] = useState(false);
 
@@ -15,7 +15,7 @@ const SubMenuView = () => {
           Vokalia and Consonantia, there live the blind texts.
         </p>
       </div>
-      <nav className="navbar">
+      <div className="navbar-menu">
         <div className="navbar-container">
           <ul className="navbar-list">
             <li
@@ -30,19 +30,7 @@ const SubMenuView = () => {
             </li>
           </ul>
         </div>
-      </nav>
-      {/* <nav className="navbar ">
-        <div className="collapse">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link">Desserts</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">Drinks</a>
-            </li>
-          </ul>
-        </div>
-      </nav> */}
+      </div>
 
       {isShown && <SubMenuDesserts />}
       <SubMenuDrinks />

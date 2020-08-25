@@ -1,22 +1,22 @@
-import blogImg1 from "./image_1.jpg";
-import blogImg2 from "./image_2.jpg";
-import blogImg3 from "./image_3.jpg";
-import blogImg4 from "./image_4.jpg";
-import blogImg5 from "./image_5.jpg";
-import blogImg6 from "./image_6.jpg";
+import blogImg1 from './image_1.jpg';
+import blogImg2 from './image_2.jpg';
+import blogImg3 from './image_3.jpg';
+import blogImg4 from './image_4.jpg';
+import blogImg5 from './image_5.jpg';
+import blogImg6 from './image_6.jpg';
 
 function randomDate(start, end) {
   var d = new Date(
       start.getTime() + Math.random() * (end.getTime() - start.getTime())
     ),
-    month = "" + (d.getMonth() + 1),
-    day = "" + d.getDate(),
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
     year = d.getFullYear();
 
-  if (month.length < 2) month = "0" + month;
-  if (day.length < 2) day = "0" + day;
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
 
-  return [year, month, day].join("-");
+  return [year, month, day].join('-');
 }
 function randomNumber() {
   return Math.floor(Math.random() * 1000);
@@ -24,45 +24,57 @@ function randomNumber() {
 const BlogImages = [
   {
     src: blogImg1,
-    title: "Even the all-powerful Pointing has no control about",
+    title: 'Coffee Testing Day',
+    content:
+      'A small river named Duden flows by their place and supplies it with the necessary regelialia.',
     date: randomDate(new Date(2019, 0, 1), new Date()),
-    admin: "admin",
-    comments: randomNumber()
+    admin: 'admin',
+    comments: randomNumber(),
   },
   {
     src: blogImg2,
-    title: "Even the all-powerful Pointing has no control about",
+    title: 'Coffee Testing Day',
+    content:
+      'A small river named Duden flows by their place and supplies it with the necessary regelialia.',
     date: randomDate(new Date(2019, 0, 1), new Date()),
-    admin: "admin",
-    comments: randomNumber()
+    admin: 'admin',
+    comments: randomNumber(),
   },
   {
     src: blogImg3,
-    title: "Even the all-powerful Pointing has no control about",
+    title: 'Coffee Testing Day',
+    content:
+      'A small river named Duden flows by their place and supplies it with the necessary regelialia.',
     date: randomDate(new Date(2019, 0, 1), new Date()),
-    admin: "admin",
-    comments: randomNumber()
+    admin: 'admin',
+    comments: randomNumber(),
   },
   {
     src: blogImg4,
-    title: "Even the all-powerful Pointing has no control about",
+    title: 'Coffee Testing Day',
+    content:
+      'A small river named Duden flows by their place and supplies it with the necessary regelialia.',
     date: randomDate(new Date(2019, 0, 1), new Date()),
-    admin: "admin",
-    comments: randomNumber()
+    admin: 'admin',
+    comments: randomNumber(),
   },
   {
     src: blogImg5,
-    title: "Even the all-powerful Pointing has no control about",
+    title: 'Coffee Testing Day',
+    content:
+      'A small river named Duden flows by their place and supplies it with the necessary regelialia.',
     date: randomDate(new Date(2019, 0, 1), new Date()),
-    admin: "admin",
-    comments: randomNumber()
+    admin: 'admin',
+    comments: randomNumber(),
   },
   {
     src: blogImg6,
-    title: "Even the all-powerful Pointing has no control about",
+    title: 'Coffee Testing Day',
+    content:
+      'A small river named Duden flows by their place and supplies it with the necessary regelialia.',
     date: randomDate(new Date(2019, 0, 1), new Date()),
-    admin: "admin",
-    comments: randomNumber()
-  }
+    admin: 'admin',
+    comments: randomNumber(),
+  },
 ];
 export default BlogImages;

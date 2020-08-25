@@ -4,6 +4,7 @@ import DrinkImages from "../../../resouces/images/menuImages/drinkImages";
 const Drinks = () => {
   const drinks = DrinkImages.map(function(image, i) {
     return (
+      console.log(image)
       <React-Fragment>
         <div class="media">
           <img

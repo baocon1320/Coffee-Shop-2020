@@ -1,10 +1,10 @@
-import React from "react";
-import DrinkImages from "../../../../resouces/images/menuImages/drinkImages";
-import "./SubMenu.scss";
+import React from 'react';
+import DrinkImages from '../../../../resouces/images/menuImages/drinkImages';
+import './SubMenu.scss';
 const SubMenuDrinks = () => {
-  const menuDrinks = DrinkImages.map(function(image, i) {
+  const menuDrinks = DrinkImages.map(function (image, i) {
     return (
-      <div class="card" style={{ width: "18rem" }}>
+      <div class="card" style={{ width: '18rem' }}>
         <img
           src={image.src}
           class="card-img-top"
@@ -16,9 +16,6 @@ const SubMenuDrinks = () => {
           <h5 class="card-title">{image.title}</h5>
           <p class="card-text">{image.content}</p>
           <p>{image.price}</p>
-          <a href="#" class="btn btn-primary">
-            Add to Cart
-          </a>
         </div>
       </div>
     );

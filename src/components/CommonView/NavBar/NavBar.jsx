@@ -1,7 +1,7 @@
-import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./style.scss";
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './style.scss';
 
 function NavBar() {
   return (
@@ -32,6 +32,9 @@ function NavBar() {
           </Link>
           <Link className="nav-link" to="/About">
             About
+          </Link>
+          <Link className="nav-link" to="/Contact">
+            Contact
           </Link>
         </Nav>
       </Navbar.Collapse>
