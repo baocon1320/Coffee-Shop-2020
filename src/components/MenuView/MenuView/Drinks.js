@@ -1,10 +1,9 @@
-import React from "react";
-import DrinkImages from "../../../resouces/images/menuImages/drinkImages";
+import React from 'react';
+import DrinkImages from '../../../resouces/images/menuImages/drinkImages';
 
 const Drinks = () => {
-  const drinks = DrinkImages.map(function(image, i) {
+  const drinks = DrinkImages.map(function (image, i) {
     return (
-      console.log(image)
       <React-Fragment>
         <div class="media">
           <img
@@ -13,11 +12,11 @@ const Drinks = () => {
             alt="..."
             width={70}
             height={70}
-            style={{ borderRadius: "50%" }}
+            style={{ borderRadius: '50%' }}
           />
           <div class="media-body text-secondary">
             <h5 class="mt-0">
-              {image.title}{" "}
+              {image.title}{' '}
               <span class="text-muted">...............{image.price}</span>
             </h5>
 

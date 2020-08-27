@@ -6,6 +6,7 @@ import NavBar from '../CommonView/NavBar/NavBar';
 import ServiceView from '../ServiceView/ServiceView';
 import BlogView from '../BlogView/BlogView';
 import ContactView from '../ContactView/ContactView';
+import AboutView from '../AboutView/AboutView';
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/menu" element={<MenuView />} />
         <Route path="/service" element={<ServiceView />} />
         <Route path="/blog" element={<BlogView />} />
+        <Route path="/About" element={<AboutView />} />
         <Route path="/contact" element={<ContactView />} />
       </Routes>
     </Router>
