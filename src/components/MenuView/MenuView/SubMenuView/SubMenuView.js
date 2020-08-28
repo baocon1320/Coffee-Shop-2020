@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SubMenuDesserts from "./SubMenuDesserts";
 import SubMenuDrinks from "./SubMenuDrinks";
-import "./SubMenu.scss";
+//import "./SubMenu.scss";
 const SubMenuView = () => {
   const [isShown, setIsShown] = useState(false);
 
@@ -17,7 +17,7 @@ const SubMenuView = () => {
       </div>
       <nav className="navbar">
         <div className="navbar-container">
-          <ul className="navbar-list">
+          <ul className="navbar-list">  
             <li
               className="menu-list"
               onMouseEnter={() => setIsShown(true)}

@@ -1,6 +1,6 @@
 import React from "react";
 import DrinkImages from "../../../../resouces/images/menuImages/drinkImages";
-import "./SubMenu.scss";
+//import "./SubMenu.scss";
 const SubMenuDrinks = () => {
   const menuDrinks = DrinkImages.map(function(image, i) {
     return (

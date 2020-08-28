@@ -4,15 +4,6 @@ import bgImages from "../../../resouces/images/backgroundImages/bgImages";
 import "./style.css"
 
 function SliderImages() {
-    /*
-    {
-        bgImages.map((item) => {
-            return  (
-                 <SliderItem imageSrc={item.src} imageAlt={item.alt} imageTitle={item.title} imageContent={item.content} />
-             );
-         })
-     }
-     */
     return (
         <Carousel>
             {

@@ -1,38 +1,38 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.scss";
 
 function NavBar() {
   return (
     <Navbar
-      bg="transparent"
+      bg="black"
       expand="lg"
-      variant="dark"
-      fixed="top"
+      variant="dark"  
       className="ftco-navbar-light"
+      fixed="top"
     >
-      <Navbar.Brand href="#">
+      <Navbar.Brand href="/">
         TH <small>Coffee</small>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-auto">
-          <Link className="nav-link" to="/">
+          <NavLink  exact to="/home" className="nav-link" activeClassName="link-active">
             Home
-          </Link>
-          <Link className="nav-link" to="/Menu">
+          </NavLink>
+          <NavLink  to="/Menu" className="nav-link" activeClassName="link-active">
             Menu
-          </Link>
-          <Link className="nav-link" to="/Service">
+          </NavLink>
+          <NavLink  to="/Service" className="nav-link" activeClassName="link-active">
             Service
-          </Link>
-          <Link className="nav-link" to="/Blog">
+          </NavLink>
+          <NavLink  to="/Blog" className="nav-link" activeClassName="link-active">
             Blog
-          </Link>
-          <Link className="nav-link" to="/About">
+          </NavLink>
+          <NavLink  to="/About" className="nav-link" activeClassName="link-active">
             About
-          </Link>
+          </NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

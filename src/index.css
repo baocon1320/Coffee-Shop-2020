@@ -18,3 +18,26 @@ code {
   font-size: 30px;
   color: #c49b63;
 }
+
+.bg-black{
+  background: #151111 !important;
+}
+
+
+body{
+  font-family: "Poppins", Arial, sans-serif;  
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: gray;
+  background-color: #140700;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+  line-height: 1.4;
+  color: #fff;
+  font-weight: 400;
+  font-family: "Josefin Sans", Arial, sans-serif;
+}
