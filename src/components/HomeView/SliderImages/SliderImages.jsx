@@ -1,9 +1,10 @@
 import React from "react";
 import { Carousel, Row, Col, Button } from "react-bootstrap";
-import bgImages from "../../../resouces/images/backgroundImages/bgImages";  
+import bgImages from "../../../resouces/images/backgroundImages/bgImages";
 import "./style.css"
 
 function SliderImages() {
+    //console.log(bgImages)
     return (
         <Carousel>
             {

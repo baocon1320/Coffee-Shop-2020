@@ -12,15 +12,15 @@ function HomeView() {
     <div>
       <SliderImages />
       <Intro phoneNumber={introDetailt.phoneNumber}
-        quickIntro={introDetailt.quickIntro}
-        address={introDetailt.address}
-        fullAddress={introDetailt.fullAddress}
-        days={introDetailt.days}
-        hours={introDetailt.hours} />
-      <ShopOverview />
+          quickIntro={introDetailt.quickIntro}
+          address={introDetailt.address}
+          fullAddress={introDetailt.fullAddress}
+          days={introDetailt.days}
+          hours={introDetailt.hours} />
+          <ShopOverview />
       <Container>
-
-
+       
+        
         <BestSeller />
       </Container>
 

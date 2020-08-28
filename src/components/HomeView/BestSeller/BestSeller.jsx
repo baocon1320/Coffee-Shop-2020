@@ -15,7 +15,7 @@ function BestSeller() {
             <Row>
                 {specialty.map((item) => {
                     return (
-                        <Col md="3" px-10>
+                        <Col md="3" className="px-5" key={item.title}>
                             <ItemCard imgSrc={item.src} title={item.title} content={item.content} />
                         </Col>
                     );
