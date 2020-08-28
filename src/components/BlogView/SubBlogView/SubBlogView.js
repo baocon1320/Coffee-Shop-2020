@@ -1,13 +1,14 @@
 import React from 'react';
 import BlogImages from '../../../resouces/images/blogs/BlogImages';
+import drinkImage from '../../../resouces/images/menuImages/drinkImages';
 export default function SubBlogView() {
-  const blog = BlogImages.map(function (image) {
+  const blog = drinkImage.map(function (image) {
     return (
       <div class="card m-3 curved" style={{ width: ' 25rem' }}>
         <img
           class="card-img-top"
           src={image.src}
-          alt="Card image cap"
+          alt={image.date}
           style={{ height: ' 18rem' }}
         />
         <div class="card-body">

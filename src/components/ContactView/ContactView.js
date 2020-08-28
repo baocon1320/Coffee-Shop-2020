@@ -10,7 +10,7 @@ export default class ContactView extends Component {
     return (
       <div class="bg-dark">
         <Image src={image3} fluid />
-        <div className="d-flex flex-row justify-content-around container">
+        <div className="d-flex flex-md-row justify-content-around flex-column container">
           <Questions />
           <ContactForm />
         </div>

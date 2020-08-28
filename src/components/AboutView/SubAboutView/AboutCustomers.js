@@ -6,7 +6,7 @@ export default function AboutCustomers() {
   const AboutDataItem = AboutData.map(function (data) {
     console.log(data);
     return (
-      <div className="about-component-customer  " style={{ width: '20%' }}>
+      <div className="about-component-customer  ">
         <div class="col-lg align-self-sm-end p-3 ">
           <div class="testimony overlay">
             <blockquote>
@@ -42,7 +42,7 @@ export default function AboutCustomers() {
           </p>
         </div>
       </div>
-      <div className="d-flex flex-row flex-wrap about-customer-data mt-5">
+      <div className="d-flex flex-lg-row flex-column flex-wrap about-customer-data mt-5">
         {AboutDataItem}
       </div>
     </div>

@@ -5,9 +5,9 @@ export default function ContactForm() {
     <div className="Contact-info">
       <h3>Get In Touch</h3>
       <form className="Contact-form">
-        <div className="d-flex flex-row mb-1">
+        <div className="d-flex flex-row mb-2">
           <input
-            className="mr-4"
+            className="mr-2"
             type="text"
             name="name"
             placeholder="Your Name"
@@ -15,13 +15,18 @@ export default function ContactForm() {
           <input type="email" placeholder="Email Please"></input>
         </div>
 
-        <input type="text" name="subject" placeholder="Subject"></input>
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          className=" w-100"
+        ></input>
         <textarea
-          class="mb-3 mt-3"
+          className="mb-2 mt-2 d-block w-100"
           style={{ height: '10rem' }}
           placeholder="message"
         ></textarea>
-        <input type="submit" value="Submit" className="btn" />
+        <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
     </div>
   );

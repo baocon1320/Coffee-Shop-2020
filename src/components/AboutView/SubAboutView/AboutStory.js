@@ -3,9 +3,9 @@ import about from '../../../resouces/images/AboutImages/about.jpg';
 import './SubAbout.scss';
 export default function AboutStory() {
   return (
-    <div className="d-flex flex-row about-story">
-      <div>
-        <img src={about} />
+    <div className="d-md-flex flex-row about-story">
+      <div className="first-half" style={{ backgroundImage: `url(${about})` }}>
+        {/* <img src={about} alt="about-img" /> */}
       </div>
       <div class="col-md-7 mx-auto about-intro">
         <div className="about-sub-intro">

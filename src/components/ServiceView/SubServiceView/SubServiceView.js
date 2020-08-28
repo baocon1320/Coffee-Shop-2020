@@ -45,7 +45,7 @@ export default function SubServiceView() {
           <img
             className="card-img-top rounded img-fluid img-thumbnail"
             src={image.src}
-            alt="Card image cap"
+            alt={image.alt}
             style={{ height: '15rem' }}
           />
           <div className="card-body">
@@ -57,6 +57,8 @@ export default function SubServiceView() {
     );
   });
   return (
-    <div className="d-flex flex-row justify-content-center">{service}</div>
+    <div className="d-flex justify-content-center  flex-column   flex-lg-row align-items-center mt-5">
+      {service}
+    </div>
   );
 }

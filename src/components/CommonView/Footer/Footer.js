@@ -9,7 +9,7 @@ const footer = () => {
     <div className="footer">
       <div
         className="footer-flex d-flex
-        flex-row justify-content-center "
+        flex-row justify-content-center flex-wrap flex-sm-column"
       >
         <AboutUs />
         <Blog />

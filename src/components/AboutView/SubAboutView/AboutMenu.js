@@ -18,15 +18,12 @@ export default function AboutMenu() {
               they live in Bookmarksgrove right at the coast of the Semantics, a
               large language ocean.
             </p>
-            <p>
-              <a
-                href="#"
-                style={{ height: '100%' }}
-                class="btn btn-primary btn-outline-primary px-4 py-3"
-              >
-                View Full Menu
-              </a>
-            </p>
+
+            <input
+              style={{ height: '100%' }}
+              class="btn btn-primary btn-outline-primary px-4 py-3"
+              placeholder="View Full Menu"
+            />
           </div>
         </div>
         <div class="col-md-6">
@@ -35,16 +32,16 @@ export default function AboutMenu() {
               <div class="menu-entry">
                 <img
                   src={menu1}
-                  href="#"
                   class="img"
                   style={{ width: '100%' }}
+                  alt="menu1"
                 />{' '}
               </div>
             </div>
             <div class="col-md-6">
               <div class="menu-entry mt-lg-4">
                 <img
-                  href="#"
+                  alt="menu2"
                   class="img"
                   src={menu2}
                   style={{ width: '100%' }}
@@ -54,9 +51,9 @@ export default function AboutMenu() {
             <div class="col-md-6">
               <div class="menu-entry">
                 <img
-                  href="#"
                   class="img"
                   src={menu3}
+                  alt="menu3"
                   style={{ width: '100%' }}
                 />{' '}
               </div>
@@ -64,9 +61,9 @@ export default function AboutMenu() {
             <div class="col-md-6">
               <div class="menu-entry mt-lg-4">
                 <img
-                  href="#"
                   class="img"
                   src={menu4}
+                  alt="menu4"
                   style={{ width: '100%' }}
                 />{' '}
               </div>

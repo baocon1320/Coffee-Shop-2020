@@ -70,7 +70,7 @@ export default function AboutNetwork() {
   return (
     <div style={sectionStyle}>
       <div class="container opacity-5">
-        <div class="d-flex flex-row justify-content-center">
+        <div class="d-flex flex-row flex-md-column justify-content-center">
           <div class="col-md-10">
             <div class="row justify-content-center align-items-center">
               <div class="col-md-6 col-lg-3 d-flex flex-row justify-content-center counter-wrap ">

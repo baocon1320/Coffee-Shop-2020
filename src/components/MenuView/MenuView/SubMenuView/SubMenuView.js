@@ -57,10 +57,10 @@ const SubMenuView = () => {
               onMouseEnter={() => setIsShown(true)}
               onMouseLeave={() => setIsShown(false)}
             >
-              <a>Desserts</a>
+              <a href="/#">Desserts</a>
             </li>
             <li className="menu-list">
-              <a>Drinks</a>
+              <a href="/#">Drinks</a>
             </li>
           </ul>
         </div>

@@ -11,6 +11,7 @@ export default function Map() {
         allowfullscreen=""
         aria-hidden="false"
         tabindex="0"
+        title="trung hoa cafe"
       ></iframe>
     </div>
   );
