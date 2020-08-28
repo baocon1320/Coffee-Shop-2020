@@ -1,10 +1,10 @@
-import React from "react";
-import DessertImages from "../../../../resouces/images/menuImages/dessertImages";
-//import "./SubMenu.scss";
+import React from 'react';
+import DessertImages from '../../../../resouces/images/menuImages/dessertImages';
+import './SubMenu.scss';
 const SubMenuDesserts = () => {
-  const menuDesserts = DessertImages.map(function(image, i) {
+  const menuDesserts = DessertImages.map(function (image, i) {
     return (
-      <div class="card p-2 bd-highlight" style={{ width: "18rem" }}>
+      <div class="card p-2 bd-highlight" style={{ width: '18rem' }}>
         <img
           src={image.src}
           class="card-img-top"
@@ -16,9 +16,6 @@ const SubMenuDesserts = () => {
           <h5 class="card-title">{image.title}</h5>
           <p class="card-text">{image.content}</p>
           <p>{image.price}</p>
-          <a href="#" class="btn btn-primary">
-            Add to Cart
-          </a>
         </div>
       </div>
     );

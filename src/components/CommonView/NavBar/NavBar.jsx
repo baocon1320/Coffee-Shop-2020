@@ -2,7 +2,6 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./style.scss";
-
 function NavBar() {
   return (
     <Navbar
@@ -32,6 +31,9 @@ function NavBar() {
           </NavLink>
           <NavLink  to="/About" className="nav-link" activeClassName="link-active">
             About
+          </NavLink>
+          <NavLink className="nav-link" to="/Contact">
+            Contact
           </NavLink>
         </Nav>
       </Navbar.Collapse>
