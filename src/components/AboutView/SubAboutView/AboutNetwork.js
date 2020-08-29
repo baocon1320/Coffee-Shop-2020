@@ -3,10 +3,13 @@ import Background from '../../../resouces/images/AboutImages/bg_2.jpg';
 import './SubAbout.scss';
 let sectionStyle = {
   backgroundImage: `url(${Background})`,
-  backgroundPosition: '0em -15em',
+  backgroundPosition: '0em - 15em',
   backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  // backgroundRttachment: 'fixed',
   opacity: ' 0.9',
 };
+
 export default function AboutNetwork() {
   const random = function () {
     return Math.floor(Math.random() * 100000);
@@ -36,7 +39,7 @@ export default function AboutNetwork() {
   ];
   const netWorkRender = Network.map(function (data) {
     return (
-      <div class="block-18 text-center">
+      <div class="text-center">
         <div class="text p-4 m-5">
           <div class="icon network-icon">
             <i
@@ -68,18 +71,23 @@ export default function AboutNetwork() {
     );
   });
   return (
+    // <div class="container opacity-5">
+    //   <div class="d-flex flex-row flex-md-column justify-content-center">
+    //     <div class="col-md-10">
+    //       <div class="row justify-content-center align-items-center">
+    //
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+    // </div>
+    // <div className="container">
+    // <div className="row">
     <div style={sectionStyle}>
-      <div class="container opacity-5">
-        <div class="d-flex flex-row flex-md-column justify-content-center">
-          <div class="col-md-10">
-            <div class="row justify-content-center align-items-center">
-              <div class="col-md-6 col-lg-3 d-flex flex-row justify-content-center counter-wrap ">
-                {netWorkRender}
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="d-flex flex-md-row flex-column justify-content-center flex-wrap ">
+        {netWorkRender}
       </div>
     </div>
+    // </div>
   );
 }
