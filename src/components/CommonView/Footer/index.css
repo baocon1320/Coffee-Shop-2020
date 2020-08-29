@@ -1,0 +1,12 @@
+.th-thumbail {
+    width: 100%;
+    height: 75px; 
+    object-fit: cover;
+}
+.th-thumbail-nopad{
+    padding: 0 !important;
+}
+
+.th-row-thumbail-nopad{
+    margin:0;
+}

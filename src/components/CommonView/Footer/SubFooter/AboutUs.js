@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
-import '../Footer.scss';
+//import '../Footer.scss';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
-const AboutUs = () => {
+
+function AboutUs() {
   const sectionRef = useRef(null);
 
   const intersection = useIntersection(sectionRef, {
@@ -34,6 +35,13 @@ const AboutUs = () => {
     ? fadeOutAbout('.fadeInAbout')
     : fadeInAbout('.fadeInAbout');
   return (
+    <div>
+      <h4>About Us</h4>
+      <p>Far far away, behind the word mountains, far from the countries Vokalia
+        and Consonantia, there live the blind texts.</p>
+    </div>
+
+    /*
     <div ref={sectionRef} className="d-flex flex-column footer-item">
       <h2 className="text-uppercase mb-4 footer-intro">ABOUT US</h2>
       <p>
@@ -46,6 +54,7 @@ const AboutUs = () => {
         <i className="fab fa-twitter"></i>
       </div>
     </div>
+    */
   );
 };
 

@@ -6,7 +6,7 @@ import ItemCard from "../../CommonView/ItemCard/ItemCard";
 
 function BestSeller() {
     return (
-        <div>
+        <div className="pb-5">
             <Row className="text-center py-5">
                 <Col md={{ span: 6, offset: 3 }}>
                     <TextIntroSection title="Discover" subTitle="BEST COFFEE SELLERS" content="Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts." />
@@ -15,7 +15,7 @@ function BestSeller() {
             <Row>
                 {specialty.map((item) => {
                     return (
-                        <Col md="3" className="px-5" key={item.title}>
+                        <Col md="3" className="px-3" key={item.title}>
                             <ItemCard imgSrc={item.src} title={item.title} content={item.content} />
                         </Col>
                     );
@@ -23,7 +23,6 @@ function BestSeller() {
                 }
             </Row>
         </div>
-
     );
 }
 
