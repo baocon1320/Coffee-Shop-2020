@@ -15,9 +15,11 @@ let sectionStyle = {
 export default function AboutNetwork() {
   return (
     <div style={sectionStyle}>
-      <div className="d-flex flex-md-row flex-column justify-content-center flex-wrap ">
+      <div>
         <AboutNetworkData />
       </div>
     </div>
   );
 }
+
+// className="d-flex flex-md-row flex-column justify-content-center flex-wrap "

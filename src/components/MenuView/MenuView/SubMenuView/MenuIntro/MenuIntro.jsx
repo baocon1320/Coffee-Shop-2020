@@ -4,7 +4,7 @@ export default function MenuIntro() {
   return (
     <div>
       <div class="col-md-7 mx-auto">
-        <span className="subheading fadeIn">Discover</span>
+        <h1 className="subheading fadeIn">Discover</h1>
         <h2 className="intro-menu fadeIn">Our Products</h2>
         <p className="description-menu fadeIn">
           Far far away, behind the word mountains, far from the countries

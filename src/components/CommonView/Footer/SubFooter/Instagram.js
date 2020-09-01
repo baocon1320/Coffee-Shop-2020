@@ -11,9 +11,9 @@ function Instagram() {
       <h4>Instagram</h4>
 
       <Row className="th-row-thumbail-nopad">
-        {mergeImgs.map((item) => {
+        {mergeImgs.map((item, i) => {
           return (
-            <Col sm="4" className="th-thumbail-nopad">
+            <Col sm="4" className="th-thumbail-nopad" key={i}>
               <Image src={item.src} className="th-thumbail" />
             </Col>
           );

@@ -2,17 +2,20 @@ import React from 'react';
 import '.././SubAbout.scss';
 import AboutMenuSection from './AboutMenuSection/AboutMenuSection';
 import AboutMenuImages from './AboutMenuImage/AboutMenuImage';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 export default function AboutMenu() {
   return (
-    <div class="container mt-5 mb-5">
-      <div class="row align-items-center">
-        <div class="col-md">
+    <Container className="p-5">
+      <Row>
+        <Col className="mt-5">
           <AboutMenuSection />
-        </div>
-        <div class="col-md">
+        </Col>
+        <Col>
           <AboutMenuImages />
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }

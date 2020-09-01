@@ -1,34 +1,28 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 import DrinkImages from '../../../../resouces/images/menuImages/drinkImages';
 import './SubMenu.scss';
+
 const SubMenuDrinks = () => {
-  const menuDrinks = DrinkImages.map(function (image, i) {
+  const menuDrinks = DrinkImages.map(function (image) {
     return (
-      <div class="card" style={{ width: '18rem' }}>
-        <img
+      <Card style={{ width: '18rem' }}>
+        <Card.Img
+          variant="top"
           src={image.src}
-          class="card-img-top"
-          alt="..."
+          alt={image.alt}
           width={300}
           height={300}
         />
-        <div class="card-body">
-          <h5 class="card-title">{image.title}</h5>
-          <p class="card-text">{image.content}</p>
+        <Card.Body>
+          <Card.Title>{image.title}</Card.Title>
+          <Card.Text>{image.content}</Card.Text>
           <p>{image.price}</p>
-        </div>
-      </div>
+        </Card.Body>{' '}
+      </Card>
     );
   });
-  return (
-    <div
-      className="SubMenuItems"
-
-      //   class="d-flex flex-row flex-wrap bd-highlight mb-3 justify-content-center "
-    >
-      {menuDrinks}
-    </div>
-  );
+  return <div className="SubMenuItems">{menuDrinks}</div>;
 };
 
 export default SubMenuDrinks;

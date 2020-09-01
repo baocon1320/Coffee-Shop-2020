@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import serviceImages from '../../../resouces/images/serviceImages/serviceImages';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
+import { Card } from 'react-bootstrap';
 export default function SubServiceView() {
   //create animation onscroll
   const sectionRef = useRef(null);
@@ -34,30 +35,25 @@ export default function SubServiceView() {
   intersection && intersection.intersectionRatio < 0.1
     ? fadeOut('.fadeIn')
     : fadeIn('.fadeIn');
-  const service = serviceImages.map(function (image, i) {
+  const service = serviceImages.map(function (image) {
     return (
-      <React-Fragment>
-        <div
-          ref={sectionRef}
-          className="card m-5 p-1 fadeIn"
-          style={{ width: '18rem' }}
-        >
-          <img
-            className="card-img-top rounded img-fluid img-thumbnail"
-            src={image.src}
-            alt={image.alt}
-            style={{ height: '15rem' }}
-          />
-          <div className="card-body">
-            <h5 className="card-title">{image.title}</h5>
-            <p className="card-text">{image.content}</p>
-          </div>
-        </div>
-      </React-Fragment>
+      <Card ref={sectionRef} style={{ width: '18rem' }} className="m-2 fadeIn">
+        <Card.Img
+          variant="top"
+          src={image.src}
+          alt={image.date}
+          width={300}
+          height={300}
+        />
+        <Card.Body>
+          <Card.Title>{image.title}</Card.Title>
+          <Card.Text>{image.content}</Card.Text>
+        </Card.Body>{' '}
+      </Card>
     );
   });
   return (
-    <div className="d-flex justify-content-center  flex-column   flex-lg-row align-items-center mt-5">
+    <div className="d-flex justify-content-center  flex-column   flex-lg-row align-items-center mt-5 mb-5">
       {service}
     </div>
   );

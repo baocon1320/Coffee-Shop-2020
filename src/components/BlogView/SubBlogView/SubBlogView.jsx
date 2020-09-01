@@ -1,37 +1,39 @@
 import React from 'react';
 import drinkImage from '../../../resouces/images/menuImages/drinkImages';
+import { Card } from 'react-bootstrap';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import GroupIcon from '@material-ui/icons/Group';
+import MessageIcon from '@material-ui/icons/Message';
 export default function SubBlogView() {
   const blog = drinkImage.map(function (image) {
     return (
-      <div class="card m-3 curved" style={{ width: ' 25rem' }}>
-        <img
-          class="card-img-top"
+      <Card style={{ width: '18rem' }} className="m-2">
+        <Card.Img
+          variant="top"
           src={image.src}
           alt={image.date}
-          style={{ height: ' 18rem' }}
+          width={300}
+          height={300}
         />
-        <div class="card-body">
+        <Card.Body>
           <p>
-            <i class="far fa-calendar-alt mr-4">
-              <span> {image.date}</span>
-            </i>
-            <i class="fas fa-user mr-4">
-              <span> {image.admin}</span>
-            </i>
-            <i class="far fa-comment-dots">
-              <span> {image.comments}</span>
-            </i>
+            <CalendarTodayIcon />
+            <span> {image.date}</span>
+            <GroupIcon />
+            <span> {image.admin}</span>
+            <MessageIcon />
+            <span> {image.comments}</span>
           </p>
-          <h5 class="card-title">{image.title}</h5>
-          <p class="card-text">{image.content}</p>
-        </div>
-      </div>
+          <Card.Title>{image.title}</Card.Title>
+          <Card.Text>{image.content}</Card.Text>
+        </Card.Body>{' '}
+      </Card>
     );
   });
   return (
     <div className="container mt-5">
       <div className="row">
-        <div className="d-flex flex-row flex-wrap justify-content-center">
+        <div className="d-flex flex-row flex-wrap justify-content-center mb-5">
           {blog}
         </div>
       </div>

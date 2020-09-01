@@ -3,6 +3,9 @@ import StoreOutlinedIcon from '@material-ui/icons/StoreOutlined';
 import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import FreeBreakfastOutlinedIcon from '@material-ui/icons/FreeBreakfastOutlined';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function AboutNetWorkData() {
   const random = function () {
@@ -31,29 +34,34 @@ export default function AboutNetWorkData() {
     },
   ];
 
-  const netWorkRender = Network.map(function (data) {
+  const netWorkRender = Network.map(function (data, i) {
     return (
-      <div className="text-center p-5 m-5">
-        <div className=" network-icon mb-3">
-          <span className="test"></span>
-          <span className=" ">{data.icon}</span>
+      <Col key={i}>
+        <div className="">
+          <div className="  ">
+            <span className=" ">{data.icon}</span>
+          </div>
+          <h3
+            style={{
+              color: ' rgb(177, 140, 89)',
+            }}
+          >
+            {data.data}
+          </h3>
+          <p
+            style={{
+              color: 'lightgrey',
+            }}
+          >
+            {data.content}
+          </p>
         </div>
-        <h3
-          style={{
-            color: ' rgb(177, 140, 89)',
-          }}
-        >
-          {data.data}
-        </h3>
-        <p
-          style={{
-            color: 'lightgrey',
-          }}
-        >
-          {data.content}
-        </p>
-      </div>
+      </Col>
     );
   });
-  return <div>{netWorkRender}</div>;
+  return (
+    <Container>
+      <Row xs={2}>{netWorkRender} </Row>
+    </Container>
+  );
 }

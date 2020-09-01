@@ -1,31 +1,3 @@
-.about-story {
-  .first-half {
-    padding: 8% 13% 8% 5%;
-    width: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-}
-@media (max-width: 767.98px) {
-  .first-half {
-    width: 100%;
-    height: 300px;
-    padding: 30px 15px;
-  }
-  .about-intro {
-    width: 100%;
-  }
-}
-.about-intro {
-  width: 50%;
-  padding: 8% 13% 8% 5%;
-  .about-sub-intro {
-    margin-left: -150px;
-    padding: 40px;
-    background: rgba(0, 0, 0, 0.5);
-  }
-}
 .about-sub-customer {
   span {
     color: rgb(177, 140, 89);
@@ -73,35 +45,37 @@
 }
 // scss for about network page
 
-.network-icon {
-  // width: 100px;
-  margin: auto; // margin-left: 8em;
-  position: relative;
+// .network-icon {
+//   // width: 100px;
+//   margin: auto; // margin-left: 8em;
+//   position: relative;
+//   span {
+//     text-align: center;
+//     display: block;
+//     padding: 2em;
+//     color: rgb(177, 140, 89);
+//     position: relative;
+//     z-index: 2;
+//   }
+// }
+.about-story-section {
   span {
-    text-align: center;
-    display: block;
-    padding: 2em;
     color: rgb(177, 140, 89);
-    position: relative;
-    z-index: 2;
+    font-size: 3em;
+    margin-bottom: -1em;
+    display: block;
+    font-style: italic;
   }
-  .test {
-    background-color: rgb(195, 211, 224);
-    position: absolute;
-    top: 0%;
-    left: 5%;
-    z-index: 1;
-    width: 100px;
-    height: 100px;
-    border: 1px solid lightcoral;
-    :hover {
-      background-color: red;
-      cursor: pointer;
-      transform: rotate(45deg);
-      -ms-transform: rotate(45deg); /* IE 9 */
-      -webkit-transform: rotate(45deg); /* Safari and Chrome */
-      position: relative;
-      color: white;
-    }
+}
+@media (min-width: 1024px) {
+  .about-story-section {
+    padding-top: 8em;
+    margin-left: -8em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-story-section {
+    margin: 1em;
   }
 }

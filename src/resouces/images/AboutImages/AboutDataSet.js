@@ -4,6 +4,7 @@ import person4 from './person_4.jpg';
 const AboutCustomer = [
   {
     src: person2,
+    alt: '1',
     name: 'Louise Kelly',
     job: 'Web developer',
     content:
@@ -11,6 +12,8 @@ const AboutCustomer = [
   },
   {
     src: person3,
+    alt: '2',
+
     name: 'Louise Kelly',
     job: 'Web developer',
     content:
@@ -18,6 +21,8 @@ const AboutCustomer = [
   },
   {
     src: person4,
+    alt: '3',
+
     name: 'Louise Kelly',
     job: 'Web developer',
     content:
@@ -25,6 +30,8 @@ const AboutCustomer = [
   },
   {
     src: person2,
+    alt: '4',
+
     name: 'Louise Kelly',
     job: 'Web developer',
     content:
@@ -32,6 +39,8 @@ const AboutCustomer = [
   },
   {
     src: person3,
+    alt: '5',
+
     name: 'Louise Kelly',
     job: 'Web developer',
     content:

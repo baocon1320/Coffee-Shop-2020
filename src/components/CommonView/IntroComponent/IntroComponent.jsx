@@ -3,25 +3,20 @@ import bg3 from '../../../resouces/images/backgroundImages/bg_3.jpg';
 import './IntroComponent.scss';
 
 export default function IntroTest(intro) {
-  console.log(intro);
   return (
     <div>
-      <div class="carousel-inner">
-        <div class="carousel-item active"></div>
+      <div className="carousel-inner">
+        <div className="carousel-item active"></div>
       </div>
-      <div
-        id="carouselExampleSlidesOnly"
-        class="carousel slide"
-        data-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100 h-80" src={bg3} alt="First slide" />
+      <div className="carousel slide" data-ride="carousel">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img className="d-block w-100 h-80" src={bg3} alt="First slide" />
           </div>
-          <div class="carousel-caption justify-content-center d-none d-md-block">
+          <div className="carousel-caption justify-content-center d-none d-md-block">
             <h1>{intro.introDetail.intro}</h1>
-            <p class="breadcrumbs">
-              <span class="mr-2">
+            <p className="breadcrumbs">
+              <span className="mr-2">
                 <a href="/#">{intro.introDetail.home}</a>
               </span>{' '}
               <span>

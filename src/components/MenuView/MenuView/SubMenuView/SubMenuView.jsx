@@ -5,11 +5,16 @@ import './SubMenu.scss';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 import MenuIntro from './MenuIntro/MenuIntro';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+
 // import SubMenuData from './SubMenuData/SubMenuData';
 // import DessertImages from '../../../../resouces/images/menuImages/dessertImages';
 // import DrinkImages from '../../../../resouces/images/menuImages/drinkImages';
 const SubMenuView = () => {
   const [isShown, setIsShown] = useState(false);
+  const [drinkIsShow, drinkIsShown] = useState(true);
+
   //create animation onscroll
   const sectionRef = useRef(null);
 
@@ -42,28 +47,32 @@ const SubMenuView = () => {
     ? fadeOut('.fadeIn')
     : fadeIn('.fadeIn');
   return (
-    <div ref={sectionRef} className="SubMenu p-5">
+    <div ref={sectionRef} className="p-5 text-center">
       <MenuIntro />
-      <div className="navbar-menu">
-        <div className="navbar-container">
-          <ul className="navbar-list fadeIn">
-            <li
-              className="menu-list "
-              onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={() => setIsShown(false)}
-            >
-              <a href="/#">Desserts</a>
-            </li>
-            <li className="menu-list">
-              <a href="/#">Drinks</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <ButtonGroup aria-label="Basic example" className="mt-5 mb-5 fadeIn">
+        <Button
+          variant="outline-light"
+          size="lg"
+          className="mr-5 rounder"
+          onMouseEnter={() => setIsShown(true)}
+          onMouseOver={() => drinkIsShown(false)}
+        >
+          Desserts
+        </Button>
+        <Button
+          variant="outline-light"
+          size="lg"
+          className=" rounder"
+          onMouseEnter={() => setIsShown(false)}
+          onMouseOver={() => drinkIsShown(true)}
+        >
+          Drinks
+        </Button>
+      </ButtonGroup>
+
       <div className="fadeIn">
         {isShown && <SubMenuDesserts />}
-        <SubMenuDrinks />
-        {/* <SubMenuData menuData={[DessertImages]} /> */}
+        {drinkIsShow && <SubMenuDrinks />}
       </div>
     </div>
   );

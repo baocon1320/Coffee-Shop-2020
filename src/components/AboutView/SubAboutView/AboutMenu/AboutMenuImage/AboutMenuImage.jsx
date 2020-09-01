@@ -3,51 +3,34 @@ import menu4 from '../../../../../resouces/images/AboutImages/menu-4.jpg';
 import menu1 from '../../../../../resouces/images/AboutImages/menu-1.jpg';
 import menu2 from '../../../../../resouces/images/AboutImages/menu-2.jpg';
 import menu3 from '../../../../../resouces/images/AboutImages/menu-3.jpg';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
+
 export default function AboutMenuImage() {
   return (
-    <div className="col-md-6">
-      <div className="row">
-        <div className="col-md-6">
-          <div className="menu-entry">
-            <img
-              src={menu1}
-              className="img"
-              style={{ width: '100%' }}
-              alt="menu1"
-            />{' '}
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="menu-entry mt-lg-4">
-            <img
-              alt="menu2"
-              className="img"
-              src={menu2}
-              style={{ width: '100%' }}
-            />{' '}
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="menu-entry">
-            <img
-              className="img"
-              src={menu3}
-              alt="menu3"
-              style={{ width: '100%' }}
-            />{' '}
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="menu-entry mt-lg-4">
-            <img
-              className="img"
-              src={menu4}
-              alt="menu4"
-              style={{ width: '100%' }}
-            />{' '}
-          </div>
-        </div>
-      </div>
-    </div>
+    <Container>
+      <Row>
+        <Col style={{ marginTop: '2em' }}>
+          {' '}
+          <Image src={menu1} thumbnail alt="menu1" />
+        </Col>
+        <Col>
+          {' '}
+          <Image src={menu2} thumbnail alt="menu2" />
+        </Col>
+      </Row>
+      <Row>
+        <Col style={{ marginTop: '2em' }}>
+          {' '}
+          <Image src={menu3} thumbnail alt="menu3" />
+        </Col>
+        <Col>
+          {' '}
+          <Image src={menu4} thumbnail alt="menu4" />
+        </Col>
+      </Row>
+    </Container>
   );
 }
