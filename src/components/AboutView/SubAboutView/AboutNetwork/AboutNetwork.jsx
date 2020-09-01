@@ -8,6 +8,7 @@ let sectionStyle = {
   backgroundPosition: '0em - 15em',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
+  minHeight: '30em',
   // backgroundRttachment: 'fixed',
   opacity: ' 0.9',
 };
@@ -21,5 +22,3 @@ export default function AboutNetwork() {
     </div>
   );
 }
-
-// className="d-flex flex-md-row flex-column justify-content-center flex-wrap "

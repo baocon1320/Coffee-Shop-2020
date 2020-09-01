@@ -3,9 +3,13 @@ import DessertImages from '../../../../resouces/images/menuImages/dessertImages'
 import './SubMenu.scss';
 import { Card } from 'react-bootstrap';
 const SubMenuDesserts = () => {
-  const menuDesserts = DessertImages.map(function (image) {
+  const menuDesserts = DessertImages.map(function (image, i) {
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card
+        key={i}
+        style={{ width: '18rem' }}
+        className="bg-transparent border-transparent"
+      >
         <Card.Img
           variant="top"
           src={image.src}

@@ -4,9 +4,13 @@ import DrinkImages from '../../../../resouces/images/menuImages/drinkImages';
 import './SubMenu.scss';
 
 const SubMenuDrinks = () => {
-  const menuDrinks = DrinkImages.map(function (image) {
+  const menuDrinks = DrinkImages.map(function (image, i) {
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card
+        key={i}
+        style={{ width: '18rem' }}
+        className="bg-transparent border-transparent"
+      >
         <Card.Img
           variant="top"
           src={image.src}

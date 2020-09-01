@@ -36,10 +36,24 @@ export default function AboutNetWorkData() {
 
   const netWorkRender = Network.map(function (data, i) {
     return (
-      <Col key={i}>
+      <Col key={i} sm={12} md={6} lg={3}>
         <div className="">
-          <div className="  ">
-            <span className=" ">{data.icon}</span>
+          <div
+            className="  "
+            style={{
+              margin: '2em',
+            }}
+          >
+            <span
+              className=" "
+              style={{
+                padding: '2em',
+                border: '1px solid rgb(177, 140, 89)',
+                color: 'rgb(177, 140, 89)',
+              }}
+            >
+              {data.icon}
+            </span>
           </div>
           <h3
             style={{
@@ -60,8 +74,8 @@ export default function AboutNetWorkData() {
     );
   });
   return (
-    <Container>
-      <Row xs={2}>{netWorkRender} </Row>
+    <Container className="text-center  " style={{ padding: '10em' }}>
+      <Row>{netWorkRender} </Row>
     </Container>
   );
 }

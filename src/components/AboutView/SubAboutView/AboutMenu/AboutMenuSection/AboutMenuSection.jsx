@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function AboutMenuSection() {
   return (
-    <Card style={{ width: '35rem' }} className="text-right mt-5 bg-dark">
+    <Card style={{ width: '35rem' }} className="text-right mt-5 bg-dark mb-5">
       <Card.Body>
         <Card.Title style={{ fontSize: '2em' }}>Discover</Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '2em' }}>

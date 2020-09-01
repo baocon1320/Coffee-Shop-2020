@@ -35,15 +35,21 @@ export default function SubServiceView() {
   intersection && intersection.intersectionRatio < 0.1
     ? fadeOut('.fadeIn')
     : fadeIn('.fadeIn');
-  const service = serviceImages.map(function (image) {
+  const service = serviceImages.map(function (image, i) {
     return (
-      <Card ref={sectionRef} style={{ width: '18rem' }} className="m-2 fadeIn">
+      <Card
+        key={i}
+        ref={sectionRef}
+        style={{ width: '18rem' }}
+        className="m-2 fadeIn bg-transparent border-transparent"
+      >
         <Card.Img
           variant="top"
           src={image.src}
           alt={image.date}
           width={300}
           height={300}
+          className="bg-white"
         />
         <Card.Body>
           <Card.Title>{image.title}</Card.Title>

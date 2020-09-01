@@ -5,9 +5,13 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import GroupIcon from '@material-ui/icons/Group';
 import MessageIcon from '@material-ui/icons/Message';
 export default function SubBlogView() {
-  const blog = drinkImage.map(function (image) {
+  const blog = drinkImage.map(function (image, i) {
     return (
-      <Card style={{ width: '18rem' }} className="m-2">
+      <Card
+        key={i}
+        style={{ width: '18rem' }}
+        className="m-2 bg-transparent border-transparent"
+      >
         <Card.Img
           variant="top"
           src={image.src}
