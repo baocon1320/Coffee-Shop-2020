@@ -1,6 +1,6 @@
 import React from 'react';
-import about from '../../../resouces/images/AboutImages/about.jpg';
-import './SubAbout.scss';
+import about from '../../../../resouces/images/AboutImages/about.jpg';
+import '../SubAbout.scss';
 export default function AboutStory() {
   return (
     <div className="d-md-flex flex-row about-story">

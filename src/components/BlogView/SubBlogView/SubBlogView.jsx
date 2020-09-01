@@ -1,5 +1,4 @@
 import React from 'react';
-import BlogImages from '../../../resouces/images/blogs/BlogImages';
 import drinkImage from '../../../resouces/images/menuImages/drinkImages';
 export default function SubBlogView() {
   const blog = drinkImage.map(function (image) {

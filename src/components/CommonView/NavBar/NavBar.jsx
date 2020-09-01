@@ -17,7 +17,7 @@ function NavBar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-auto">
-          <NavLink  exact to="/home" className="nav-link" activeClassName="link-active">
+          <NavLink  exact="true" to="/home" className="nav-link" activeClassName="link-active">
             Home
           </NavLink>
           <NavLink  to="/Menu" className="nav-link" activeClassName="link-active">

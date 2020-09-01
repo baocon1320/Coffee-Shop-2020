@@ -74,18 +74,34 @@
 // scss for about network page
 
 .network-icon {
-  margin: 1em;
-  i {
+  // width: 100px;
+  margin: auto; // margin-left: 8em;
+  position: relative;
+  span {
+    text-align: center;
+    display: block;
+    padding: 2em;
     color: rgb(177, 140, 89);
-  }
-
-  :hover {
-    background-color: red;
-    cursor: pointer;
-    transform: rotate(45deg);
-    -ms-transform: rotate(45deg); /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Safari and Chrome */
     position: relative;
-    color: white;
+    z-index: 2;
+  }
+  .test {
+    background-color: rgb(195, 211, 224);
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    border: 1px solid lightcoral;
+    :hover {
+      background-color: red;
+      cursor: pointer;
+      transform: rotate(45deg);
+      -ms-transform: rotate(45deg); /* IE 9 */
+      -webkit-transform: rotate(45deg); /* Safari and Chrome */
+      position: relative;
+      color: white;
+    }
   }
 }

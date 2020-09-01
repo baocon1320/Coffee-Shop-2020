@@ -1,12 +1,12 @@
 import React from 'react';
-import AboutUs from './SubFooter/AboutUs';
-import Blog from './SubFooter/Blog';
-import Services from './SubFooter/Services';
-import Questions from './SubFooter/Questions';
+import AboutUs from './SubFooter/AboutUs.jsx';
+import Blog from './SubFooter/Blog.jsx';
+import Services from './SubFooter/Services.jsx';
+import Questions from './SubFooter/Questions.jsx';
 import './Footer.scss';
 const footer = () => {
   return (
-    <div className="footer">
+    <div className="footer pt-5 text-white m-auto">
       <div
         className="footer-flex d-flex
         flex-row justify-content-center flex-wrap flex-sm-column"
@@ -17,7 +17,7 @@ const footer = () => {
         <Questions />
       </div>
       <div>
-        <blockquote className="footer-blockquote">
+        <blockquote className="text-center h5 p-5">
           Copyright ©2020 All rights reserved | This template is made with by
           Colorlib
         </blockquote>

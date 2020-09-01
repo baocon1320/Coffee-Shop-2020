@@ -1,106 +1,18 @@
-$spacer: 1rem;
-$spacers: (
-  6: (
-    $spacer * 3.5,
-  ),
-  7: (
-    $spacer * 10,
-  ),
-);
-.footer {
-  padding-top: 5rem;
-  color: white;
-  background-color: rgb(52, 58, 64);
-  width: 70%;
-  margin: 0 auto;
-}
-
-// .footer-flex {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-// }
-
-.footer-blockquote {
-  padding: 5rem;
-  text-align: center;
-  font-size: 1.2rem;
-  margin: 0;
-}
-.about-icon {
-  font-size: 2rem;
-
-  .fab {
-    text-align: center;
-    height: 3.5rem;
-    width: 3.5rem;
-    padding: 0.8rem;
-    border-radius: 50%;
-    margin: 0.5rem;
-    background: rgb(34, 32, 31);
-  }
-}
 .footer-intro {
   font-size: 1.2rem;
-}
-// blog section
-.blogs {
-  flex: 0 0 33.33333%;
-  max-width: 33.33333%;
-}
-
-// Services section
-.services {
-  flex: 0 0 16.66667%;
-  max-width: 16.66667%;
-}
-
-.services-list {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    font-size: 1rem;
-
-    li {
-      padding-bottom: 1.5rem;
-    }
-  }
 }
 
 //questions section
 
-.questions {
-  flex: 0 0 25%;
-  max-width: 15%;
-
-  ul {
-    font-size: 1.2rem;
-    list-style-type: none;
-    padding: 0;
-
-    li {
-      padding-bottom: 1rem;
-
-      span:first-child {
-        padding-right: 1rem;
-      }
-    }
-  }
-}
 @media screen and (max-width: 768px) {
   .footer-flex {
     flex-direction: column !important;
     max-width: 100%;
-    // background-color: red;
   }
   .footer-item {
     padding: 2rem 4rem;
   }
   .questions {
-    // flex: 0 0 25%;
     max-width: 100%;
   }
   .services {
@@ -108,7 +20,6 @@ $spacers: (
     max-width: 100%;
   }
   .blogs {
-    // flex: 0 0 33.33333%;
     max-width: 100%;
   }
 }

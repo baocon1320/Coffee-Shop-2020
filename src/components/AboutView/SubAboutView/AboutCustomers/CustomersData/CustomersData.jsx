@@ -1,8 +1,7 @@
+import AboutData from '../../../../../resouces/images/AboutImages/AboutDataSet';
 import React from 'react';
-import AboutData from '../../../resouces/images/AboutImages/AboutDataSet';
-// import bg_1 from '../../../resouces/images/AboutImages/bg_1.jpg';
-import './SubAbout.scss';
-export default function AboutCustomers() {
+
+export default function CustomersData() {
   const AboutDataItem = AboutData.map(function (data) {
     console.log(data);
     return (
@@ -30,21 +29,10 @@ export default function AboutCustomers() {
       </div>
     );
   });
+
   return (
-    <div className="about-main-customer">
-      <div class="col-md-7 mx-auto about-customer text-center">
-        <div className="about-sub-customer">
-          <span className="">Testimony</span>
-          <h2 className=" fadeIn">CUSTOMERS SAYS</h2>
-          <p className="fadeIn">
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts.
-          </p>
-        </div>
-      </div>
-      <div className="d-flex flex-lg-row flex-column flex-wrap about-customer-data mt-5">
-        {AboutDataItem}
-      </div>
+    <div className="d-flex flex-lg-row flex-column flex-wrap about-customer-data mt-5">
+      {AboutDataItem}
     </div>
   );
 }

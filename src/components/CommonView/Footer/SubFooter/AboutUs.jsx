@@ -2,6 +2,9 @@ import React, { useRef } from 'react';
 import '../Footer.scss';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
 const AboutUs = () => {
   const sectionRef = useRef(null);
 
@@ -40,10 +43,16 @@ const AboutUs = () => {
         Far far away, behind the word mountains, far from the countries Vokalia
         and Consonantia, there live the blind texts.
       </p>
-      <div className="about-icon fadeInAbout">
-        <i className="fab fa-facebook-f"></i>
-        <i className="fab fa-instagram"></i>
-        <i className="fab fa-twitter"></i>
+      <div className="d-flex flex-row text-dark  fadeInAbout">
+        <div className="rounded-circle m-1 p-3 bg-white ">
+          <TwitterIcon />
+        </div>
+        <div className="rounded-circle m-1 p-3 bg-white ">
+          <FacebookIcon />
+        </div>
+        <div className="rounded-circle m-1 p-3 bg-white ">
+          <InstagramIcon />
+        </div>
       </div>
     </div>
   );

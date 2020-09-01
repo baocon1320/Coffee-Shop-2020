@@ -4,12 +4,12 @@ const Services = () => {
   return (
     <div className="footer-item services ">
       <h2 className="text-uppercase mb-4 footer-intro">SERVICES</h2>
-      <div className="services-list">
-        <ul className="list-group">
+      <div className="">
+        <ul className=" text-uppercase list-unstyled">
           <li className="">cooked</li>
-          <li className="">deliver</li>
-          <li className="">quality foods</li>
-          <li className="">mixed</li>
+          <li className="pt-2">deliver</li>
+          <li className="pt-2">quality foods</li>
+          <li className="pt-2">mixed</li>
         </ul>
       </div>
     </div>
