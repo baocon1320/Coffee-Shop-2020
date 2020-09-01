@@ -41,3 +41,12 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
   font-weight: 400;
   font-family: "Josefin Sans", Arial, sans-serif;
 }
+
+footer {
+  padding: 5rem;
+  background: #141313;
+}
+
+.text-color-theme {
+  color: #c49b63;
+} 

@@ -1,28 +1,30 @@
 import React from 'react';
-import AboutUs from './SubFooter/AboutUs.jsx';
-import Blog from './SubFooter/Blog.jsx';
-import Services from './SubFooter/Services.jsx';
-import Questions from './SubFooter/Questions.jsx';
+import AboutUs from './SubFooter/AboutUs';
+import Hours from './SubFooter/Hours';
+import Instagram from './SubFooter/Instagram';
+import Contact from './SubFooter/Contact';
 import './Footer.scss';
+import { Container, Row, Col } from 'react-bootstrap';
 const footer = () => {
   return (
-    <div className="footer pt-5 text-white m-auto">
-      <div
-        className="footer-flex d-flex
-        flex-row justify-content-center flex-wrap flex-sm-column"
-      >
-        <AboutUs />
-        <Blog />
-        <Services />
-        <Questions />
-      </div>
-      <div>
-        <blockquote className="text-center h5 p-5">
-          Copyright ©2020 All rights reserved | This template is made with by
-          Colorlib
-        </blockquote>
-      </div>
-    </div>
+    <footer>
+      <Container>
+        <Row>
+          <Col md="6" lg="3" className="px-3">
+            <AboutUs />
+          </Col>
+          <Col md="6" lg="3" className="px-3">
+            <Hours />
+          </Col>
+          <Col md="6" lg="3" className="px-3">
+            <Instagram />
+          </Col>
+          <Col md="6" lg="3" className="px-3">
+            <Contact />
+          </Col>
+        </Row>
+      </Container>
+    </footer>
   );
 };
 
