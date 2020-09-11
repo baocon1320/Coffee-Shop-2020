@@ -35,9 +35,10 @@ const updateInfo = (req, res, next) => {
 
 // add new info
 const addInfo = async (req, res, next) => {
-    const {name, address, phoneNumber, images, intro, hours, hoursDetail} = req.body;
+    const {name,shortAddress, address, phoneNumber, images, intro, hours, hoursDetail} = req.body;
     const newInfo = new Info({
-        name, 
+        name,
+        shortAddress, 
         address,
         phoneNumber,
         images,
