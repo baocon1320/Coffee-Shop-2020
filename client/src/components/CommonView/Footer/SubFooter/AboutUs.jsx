@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 
-function AboutUs() {
+function AboutUs(props) {
   const sectionRef = useRef(null);
 
   const intersection = useIntersection(sectionRef, {
@@ -38,8 +38,7 @@ function AboutUs() {
     <div>
       <h4>About Us</h4>
       <p>
-        Far far away, behind the word mountains, far from the countries Vokalia
-        and Consonantia, there live the blind texts.
+        {props.intro}
       </p>
     </div>
 

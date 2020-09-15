@@ -5,16 +5,18 @@ import Instagram from './SubFooter/Instagram';
 import Contact from './SubFooter/Contact';
 import './Footer.scss';
 import { Container, Row, Col } from 'react-bootstrap';
-const footer = () => {
+
+function footer(props) {
+  const infoData = props.infoData;
   return (
     <footer>
       <Container>
         <Row>
           <Col md="6" lg="3" className="px-3">
-            <AboutUs />
+            <AboutUs intro={infoData.info.intro}/>
           </Col>
           <Col md="6" lg="3" className="px-3">
-            <Hours />
+            <Hours hoursDetail={infoData.info.hoursDetail}/>
           </Col>
           <Col md="6" lg="3" className="px-3">
             <Instagram />

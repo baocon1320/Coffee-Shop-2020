@@ -1,43 +1,12 @@
 import React from 'react';
-//import BlogImages from '../../../../resouces/images/blogs/BlogImages';
-// console.log(BlogImages);
-function Hour() {
-  const hours = [
-    {
-      day: 'Monday',
-      time: '11:00 - 23:00',
-    },
-    {
-      day: 'Tuesday',
-      time: '11:00 - 23:00',
-    },
-    {
-      day: 'Wednesday',
-      time: '11:00 - 23:00',
-    },
-    {
-      day: 'Thursday',
-      time: '11:00 - 23:00',
-    },
-    {
-      day: 'Friday',
-      time: '11:00 - 23:00',
-    },
-    {
-      day: 'Saturday',
-      time: '11:00 - 23:00',
-    },
-    {
-      day: 'Sunday',
-      time: '11:00 - 23:00',
-    },
-  ];
 
+function Hour(props) {
+  const hoursDetail = props.hoursDetail;
   return (
     <div>
       <h4>Open Hours</h4>
       <ul className="list-unstyled">
-        {hours.map((item) => {
+        {hoursDetail.map((item) => {
           return (
             <li className="d-flex justify-content-between" key={item.day}>
               <span>{item.day}</span>

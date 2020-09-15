@@ -1,43 +1,89 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeView from '../HomeView/HomeView/HomeView';
-import MenuView from '../MenuView/MenuView/MenuView.jsx';
-import NavBar from '../CommonView/NavBar/NavBar.jsx';
-import ServiceView from '../ServiceView/ServiceView.jsx';
-import BlogView from '../BlogView/BlogView.jsx';
-import ContactView from '../ContactView/ContactView.jsx';
-import AboutView from '../AboutView/AboutView.jsx';
-import React, { Component } from 'react';
-import introDetail from '../../resouces/Text/Intro/introDetail';
-export default class App extends Component {
-  render() {
-    return (
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomeView />} />
-          <Route path="/home" element={<HomeView />} />
-          <Route
-            path="/menu"
-            element={<MenuView introDetail={introDetail.menu} />}
-          />
-          <Route
-            path="/service"
-            element={<ServiceView introDetail={introDetail.services} />}
-          />
-          <Route
-            path="/blog"
-            element={<BlogView introDetail={introDetail.blog} />}
-          />
-          <Route
-            path="/About"
-            element={<AboutView introDetail={introDetail.about} />}
-          />
-          <Route
-            path="/contact"
-            element={<ContactView introDetail={introDetail.contact} />}
-          />
-        </Routes>
-      </Router>
-    );
-  }
+//import MenuView from '../MenuView/MenuView/MenuView';
+import NavBar from '../CommonView/NavBar/NavBar';
+import ServiceView from '../ServiceView/ServiceView';
+import BlogView from '../BlogView/BlogView';
+import ContactView from '../ContactView/ContactView';
+import AboutView from '../AboutView/AboutView';
+import React, { useState, Suspense, useEffect } from 'react';
+import introDetail from '../../resouces/Text/Intro/introDetail.js';
+import Footer from '../CommonView/Footer/Footer';
+
+// Spliting code using lazy
+const MenuView = React.lazy(() => import('../MenuView/MenuView/MenuView'));
+
+//export default class App extends Component {
+function App() {
+  const [infoData, setInfoData] = useState();
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // useEffect to fetch the data for the first time only without redenring
+  useEffect(() => {
+    const sendRequest = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/info');
+        const responseData = await response.json();
+
+        // Thow error if the response code is 400 or 500 level
+        if (!response.ok) {
+          throw new Error(responseData.message);
+        }
+
+
+        setInfoData(responseData);
+
+        // catching error
+      } catch (err) {
+        setError(err.message);
+      }
+      setIsLoading(false);
+    };
+    sendRequest();
+
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <React.Fragment>
+      {!isLoading && infoData &&
+        <Router>
+          <NavBar />
+          <Suspense fallback={<div><h1>Loading...</h1></div>}>
+            <Routes>
+
+              <Route path="/" element={<HomeView infoData={infoData} />} />
+              <Route path="/home" element={<HomeView infoData={infoData} />} />
+              <Route
+                path="/menu"
+                element={<MenuView introDetail={introDetail.menu} />}
+              />
+              <Route
+                path="/service"
+                element={<ServiceView introDetail={introDetail.services} />}
+              />
+              <Route
+                path="/blog"
+                element={<BlogView introDetail={introDetail.blog} />}
+              />
+              <Route
+                path="/About"
+                element={<AboutView introDetail={introDetail.about} />}
+              />
+              <Route
+                path="/contact"
+                element={<ContactView introDetail={introDetail.contact} />}
+              />
+
+            </Routes>
+          </Suspense>
+          <Footer infoData={infoData} />
+        </Router>
+      }
+      {isLoading && <div><h1>Loading.......</h1></div>}  
+    </React.Fragment>
+  );
 }
+
+export default App;

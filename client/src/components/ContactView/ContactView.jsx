@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import Footer from '../CommonView/Footer/Footer';
 import ContactForm from './SubContactView/ContactForm.jsx';
 import Contact from '../CommonView/Footer/SubFooter/Contact.js';
 import Map from './SubContactView/Map.jsx';
@@ -24,7 +22,6 @@ export default class ContactView extends Component {
           </Row>
         </Container>
         <Map className="mb-5" />
-        <Footer />
       </div>
     );
   }

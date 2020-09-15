@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import SubMenuView from './SubMenuView/SubMenuView.jsx';
-import Footer from '../../CommonView/Footer/Footer';
 import IntroComponent from '../../CommonView/IntroComponent/IntroComponent';
 class MenuView extends Component {
   render() {
@@ -10,7 +8,6 @@ class MenuView extends Component {
         {/* <Image src={image3} fluid /> */}
         <IntroComponent introDetail={this.props.introDetail} />
         <SubMenuView />
-        <Footer />
       </div>
     );
   }

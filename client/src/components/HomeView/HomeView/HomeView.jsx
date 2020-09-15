@@ -1,31 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SliderImages from '../SliderImages/SliderImages';
-import Footer from '../../CommonView/Footer/Footer';
 import Intro from '../Intro/Intro';
-import introDetail from '../../../resouces/Text/Intro/introDetail';
+//import introDetail from '../../../resouces/Text/Intro/introDetail';
 import ShopOverview from '../ShopOverview/ShopOverview';
 import BestSeller from '../BestSeller/BestSeller';
 import { Container } from 'react-bootstrap';
 
-function HomeView() {
-  return (
-    <div>
-      <SliderImages />
-      <Intro
-        phoneNumber={introDetail.homeview.phoneNumber}
-        quickIntro={introDetail.homeview.quickIntro}
-        address={introDetail.homeview.address}
-        fullAddress={introDetail.homeview.fullAddress}
-        days={introDetail.homeview.days}
-        hours={introDetail.homeview.hours}
-      />
-      <ShopOverview />
-      <Container>
-        <BestSeller />
-      </Container>
+function HomeView(props) {
 
-      <Footer />
-    </div>
+  const infoData = props.infoData;
+
+  return (
+    <React.Fragment>
+      <div>
+        <SliderImages images={infoData.info.images} />
+
+        <Intro
+          phoneNumber={infoData.info.phoneNumber}
+          quickIntro={infoData.info.intro}
+          address={infoData.info.shortAddress}
+          fullAddress={infoData.info.address}
+          days={infoData.info.hours.split(/\r?\n/)[0]}
+          hours={infoData.info.hours.split(/\r?\n/)[1]}
+        />
+
+        <ShopOverview name={infoData.info.name} fullIntro={infoData.info.fullIntro}/>
+        <Container>
+          <BestSeller bestDrinksIntro={infoData.info.bestDrinksIntro} />
+        </Container>
+      </div>
+    </React.Fragment>
+
   );
 }
 

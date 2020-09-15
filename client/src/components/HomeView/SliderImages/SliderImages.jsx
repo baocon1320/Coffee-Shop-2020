@@ -1,16 +1,17 @@
 import React from 'react';
 import { Carousel, Row, Col, Button } from 'react-bootstrap';
-import bgImages from '../../../resouces/images/backgroundImages/bgImages';
+//import bgImages from '../../../resouces/images/backgroundImages/bgImages';
 import './style.css';
+//import img1 from '../../../resouces/images/backgroundImages/bg_1.jpg'
 
-function SliderImages() {
-  //console.log(bgImages)
+function SliderImages(props) {
+  const images = props.images;
   return (
     <Carousel>
-      {bgImages.map((item) => {
+      {images.map((item) => {
         return (
           <Carousel.Item key={item.alt}>
-            <img className="d-block w-100" src={item.src} alt={item.alt} />
+            <img className="d-block w-100" src={process.env.REACT_APP_PHOTO_URL + item.src} alt={item.alt} />
             <Carousel.Caption className="caption-pos">
               <span className="subheading">Welcome</span>
               <Row>

@@ -13,7 +13,7 @@ const getInfo =  async(req, res, next) => {
     let info;
     try {
         info = await Info.findOne();
-        console.log(info);
+        //console.log(info);
     } catch(err){
         const error = new HttpError('error when getting info', 500);
         return next(error);
@@ -35,7 +35,7 @@ const updateInfo = (req, res, next) => {
 
 // add new info
 const addInfo = async (req, res, next) => {
-    const {name,shortAddress, address, phoneNumber, images, intro, hours, hoursDetail} = req.body;
+    const {name,shortAddress, address, phoneNumber, images, intro, fullIntro, bestDrinksIntro, hours, hoursDetail} = req.body;
     const newInfo = new Info({
         name,
         shortAddress, 
@@ -43,6 +43,8 @@ const addInfo = async (req, res, next) => {
         phoneNumber,
         images,
         intro,
+        fullIntro,
+        bestDrinksIntro,
         hours,
         hoursDetail
     });

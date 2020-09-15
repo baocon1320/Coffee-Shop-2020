@@ -7,6 +7,10 @@ const infoSchema = new Schema({
         type: String,
         required: true
     },
+    shortAddress: {
+        type: String,
+        required: true
+    },
     address: {
         type: String,
         required: true
@@ -34,6 +38,14 @@ const infoSchema = new Schema({
         }
     }],
     intro: {
+        type: String,
+        required: true
+    },
+    fullIntro: {
+        type: String,
+        required: true
+    },
+    bestDrinksIntro: {
         type: String,
         required: true
     },

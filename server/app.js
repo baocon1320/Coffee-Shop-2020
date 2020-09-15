@@ -1,6 +1,6 @@
 //include dotenv to loads environment variables from a .env file process.env
 require('dotenv').config();
-
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -18,6 +18,9 @@ const app = express();
 
 // For bodyParser
 app.use(bodyParser.json());
+
+// serving file from server, this case for uploaded images
+app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 
 // set CORS headers avoid CORS error
 app.use((req, res, next) => {
