@@ -50,3 +50,8 @@ footer {
 .text-color-theme {
   color: #c49b63;
 } 
+
+.modal-title  {
+  color: #dc3545!important;
+  font-weight: 800 !important;
+}
