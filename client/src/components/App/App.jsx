@@ -9,6 +9,7 @@ import AboutView from '../AboutView/AboutView';
 import React, { useState, Suspense, useEffect } from 'react';
 import introDetail from '../../resouces/Text/Intro/introDetail.js';
 import Footer from '../CommonView/Footer/Footer';
+import SpinnerView from '../CommonView/SpinnerView/SpinnerView';
 
 // Spliting code using lazy
 const MenuView = React.lazy(() => import('../MenuView/MenuView/MenuView'));
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <React.Fragment>
+   
       {!isLoading && infoData &&
         <Router>
           <NavBar />
@@ -79,9 +81,10 @@ function App() {
             </Routes>
           </Suspense>
           <Footer infoData={infoData} />
+          <SpinnerView role="loading" />
         </Router>
       }
-      {isLoading && <div><h1>Loading.......</h1></div>}  
+      {isLoading && <SpinnerView role="loading" />}  
     </React.Fragment>
   );
 }
