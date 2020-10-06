@@ -8,7 +8,7 @@ const Product = require('../models/product');
 // Get All Menu
 const getAllMenu = async (req, res, next) => {
   await Product.find()
-    .select('name price _id productImage content')
+    .select('name price _id productImage content drink dessert')
     .exec()
     .then((docs) => {
       const response = {
@@ -18,6 +18,8 @@ const getAllMenu = async (req, res, next) => {
             name: doc.name,
             price: doc.price,
             content: doc.content,
+            drink: doc.drink,
+            dessert: doc.dessert,
             productImage: doc.productImage,
             _id: doc._id,
             request: {
@@ -38,11 +40,93 @@ const getAllMenu = async (req, res, next) => {
     });
 };
 // Get All Drink
-const getAllDrinks = (req, res, next) => {};
+const getAllDrinks = async (req, res, next) => {
+  let allDrinks = [];
+
+  await Product.find()
+
+    .select('name price _id productImage content drink dessert')
+    .exec()
+    .then((docs) => {
+      const response = {
+        count: docs.length,
+        products: docs.map((doc) => {
+          return {
+            name: doc.name,
+            price: doc.price,
+            content: doc.content,
+            drink: doc.drink,
+            dessert: doc.dessert,
+            productImage: doc.productImage,
+            _id: doc._id,
+            request: {
+              type: 'GET',
+              url: 'http://localhost:5000/products/' + doc._id,
+            },
+          };
+        }),
+      };
+
+      for (let i = 0; i < response.count; i++) {
+        const drink = response.products[i].drink;
+        let drinks = response.products;
+        if (drink == true) {
+          allDrinks.push(drinks[i]);
+        }
+      }
+      res.status(200).json(allDrinks);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
 
 // Get All Food
-const getAllFood = (req, res, next) => {
-  console.log('get all food');
+const getAllFood = async (req, res, next) => {
+  let allFoods = [];
+
+  await Product.find()
+
+    .select('name price _id productImage content drink dessert')
+    .exec()
+    .then((docs) => {
+      const response = {
+        count: docs.length,
+        products: docs.map((doc) => {
+          return {
+            name: doc.name,
+            price: doc.price,
+            content: doc.content,
+            drink: doc.drink,
+            dessert: doc.dessert,
+            productImage: doc.productImage,
+            _id: doc._id,
+            request: {
+              type: 'GET',
+              url: 'http://localhost:5000/products/' + doc._id,
+            },
+          };
+        }),
+      };
+
+      for (let i = 0; i < response.count; i++) {
+        const dessert = response.products[i].dessert;
+        let desserts = response.products;
+        if (dessert == true) {
+          allFoods.push(desserts[i]);
+        }
+      }
+      res.status(200).json(allFoods);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
 };
 
 // Add a new Item
