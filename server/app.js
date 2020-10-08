@@ -24,7 +24,10 @@ app.use(bodyParser.json());
 
 // serving file from server, this case for uploaded images
 // app.use('/uploads/images', express.static(path.join('uploads', 'images')));
-app.use(express.static('./upload'));
+// app.use(express.static('./upload'));
+// make photo static
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // set CORS headers avoid CORS error
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
