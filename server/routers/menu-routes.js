@@ -90,7 +90,8 @@ router.post('/', upload.single('productImage'), async (req, res, next) => {
 });
 // get an item by id
 router.get('/:iid', menuControllers.getItemById);
-
+// Edit an item by id
+router.patch('/:iid', menuControllers.editById);
 // delete an item by id
 router.delete('/:iid', menuControllers.deleteById);
 

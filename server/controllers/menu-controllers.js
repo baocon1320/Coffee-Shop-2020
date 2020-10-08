@@ -194,6 +194,28 @@ const getItemById = (req, res, next) => {
       res.status(500).json({ error: err });
     });
 };
+const editById = async (req, res, next) => {
+  const itemId = req.params.iid;
+  console.log('Edit an item by id ' + itemId);
+  await Product.update({ _id: itemId })
+    .select('name price _id productImage')
+    .exec()
+    .then((result) => {
+      res.status(200).json({
+        message: 'Product updated',
+        request: {
+          type: 'GET',
+          url: 'http://localhost:5000/products' + itemId,
+        },
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
 
 const deleteById = async (req, res, next) => {
   const itemId = req.params.iid;
@@ -224,3 +246,4 @@ exports.getAllFood = getAllFood;
 exports.addNewItem = addNewItem;
 exports.getItemById = getItemById;
 exports.deleteById = deleteById;
+exports.editById = editById;
