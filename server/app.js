@@ -14,6 +14,8 @@ const infoRoutes = require('./routers/info-routes');
 
 // For menu routes
 const menuRoutes = require('./routers/menu-routes');
+
+const orderRoutes = require('./routers/order-routes')
 // import HttpError model
 const HttpError = require('./models/http-error');
 // EJS
@@ -44,6 +46,9 @@ app.use((req, res, next) => {
 app.use('/info', infoRoutes);
 // app.use('/menu', menuRoutes);
 app.use('/products', menuRoutes);
+
+app.use('/orders', orderRoutes);
+
 // Handle unsupported routes erro
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route', 404);
