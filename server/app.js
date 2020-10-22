@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const app = express();
+app.use(cors());
+
 //HTTP request logger
 app.use(morgan('tiny'));
 // For info routes
@@ -16,6 +18,8 @@ const infoRoutes = require('./routers/info-routes');
 const menuRoutes = require('./routers/menu-routes');
 
 const orderRoutes = require('./routers/order-routes')
+
+const userRoutes = require('./routers/user-routes')
 // import HttpError model
 const HttpError = require('./models/http-error');
 // EJS
@@ -48,7 +52,7 @@ app.use('/info', infoRoutes);
 app.use('/products', menuRoutes);
 
 app.use('/orders', orderRoutes);
-
+app.use('/user', userRoutes)
 // Handle unsupported routes erro
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route', 404);

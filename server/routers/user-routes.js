@@ -5,7 +5,7 @@ const jsonParser = bodyParser.json()
 const UserController = require('../controllers/user.controllers');
 const checkAuth = require('../middleware/check-auth');
 
-router.post('/signup',jsonParser, UserController.user_signup);
+router.post('/register',jsonParser, UserController.user_signup);
 
 router.post('/login',jsonParser, UserController.user_login);
 
