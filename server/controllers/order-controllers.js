@@ -6,7 +6,7 @@ const Product = require('../models/product');
 exports.orders_get_all = (req, res, next) => {
   Order.find()
     .select('product quantity _id')
-    .populate('product', 'name productImage price')
+    .populate('product', 'name productImage price content')
     .exec()
     .then((docs) => {
 
@@ -128,7 +128,7 @@ exports.orders_edit_order = (req, res, next) => {
     });
 };
 exports.orders_delete_order = (req, res, next) => {
-  Order.remove({ _id: req.params.orderId })
+  Order.deleteOne({ _id: req.params.orderId })
     .exec()
     .then((result) => {
       res.status(200).json({

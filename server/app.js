@@ -95,6 +95,7 @@ mongoose
   .connect(dbConnect, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex:true,
   })
   .then(() => {
     // app.listen(port, function (res) {
