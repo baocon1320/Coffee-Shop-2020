@@ -10,9 +10,12 @@ import React, { useState, Suspense, useEffect } from 'react';
 import introDetail from '../../resouces/Text/Intro/introDetail.js';
 import Footer from '../CommonView/Footer/Footer';
 import SpinnerView from '../CommonView/SpinnerView/SpinnerView';
-
+import CartView from '../Cart/CartView/CartView'
+import RegisterView from '../Register/RegisterView/RegisterView'
+import LoginView from '../Login/LoginView/LoginView'
+import CheckOutView from '../CheckOutView/CheckOutView'
 // Spliting code using lazy
-const MenuView = React.lazy(() => import('../MenuView/MenuView/MenuView'));
+const MenuView = React.lazy(() => import('../MenuView/MenuView'));
 
 //export default class App extends Component {
 function App() {
@@ -25,14 +28,15 @@ function App() {
     const sendRequest = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/info');
+        const response = await fetch(
+          process.env.REACT_APP_BACKEND_URL + '/info'
+        );
         const responseData = await response.json();
 
         // Thow error if the response code is 400 or 500 level
         if (!response.ok) {
           throw new Error(responseData.message);
         }
-
 
         setInfoData(responseData);
 
@@ -43,18 +47,21 @@ function App() {
       setIsLoading(false);
     };
     sendRequest();
-
-  }, []);// eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <React.Fragment>
-   
-      {!isLoading && infoData &&
+      {!isLoading && infoData && (
         <Router>
           <NavBar />
-          <Suspense fallback={<div><h1>Loading...</h1></div>}>
+          <Suspense
+            fallback={
+              <div>
+                <h1>Loading...</h1>
+              </div>
+            }
+          >
             <Routes>
-
               <Route path="/" element={<HomeView infoData={infoData} />} />
               <Route path="/home" element={<HomeView infoData={infoData} />} />
               <Route
@@ -77,14 +84,29 @@ function App() {
                 path="/contact"
                 element={<ContactView introDetail={introDetail.contact} />}
               />
-
+               <Route
+                path="/cart"
+                element={<CartView introDetail={introDetail.cart} />}
+              />
+               <Route
+                path="/register"
+                element={<RegisterView introDetail={introDetail.contact} />}
+              />
+               <Route
+                path="/login"
+                element={<LoginView introDetail={introDetail.contact} />}
+              />
+                <Route
+                path="/checkout"
+                element={<CheckOutView introDetail={introDetail.checkout} />}
+              />
             </Routes>
           </Suspense>
           <Footer infoData={infoData} />
           <SpinnerView role="loading" />
         </Router>
-      }
-      {isLoading && <SpinnerView role="loading" />}  
+      )}
+      {isLoading && <SpinnerView role="loading" />}
     </React.Fragment>
   );
 }

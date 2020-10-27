@@ -1,16 +1,13 @@
 import React, { useState, useRef } from 'react';
-import SubMenuDesserts from './SubMenuDesserts.jsx';
-import SubMenuDrinks from './SubMenuDrinks.jsx';
 import './SubMenu.scss';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 import MenuIntro from './MenuIntro/MenuIntro';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Drinks from './Products/Drinks';
+import Desserts from './Products/Dessert';
 
-// import SubMenuData from './SubMenuData/SubMenuData';
-// import DessertImages from '../../../../resouces/images/menuImages/dessertImages';
-// import DrinkImages from '../../../../resouces/images/menuImages/drinkImages';
 const SubMenuView = () => {
   const [isShown, setIsShown] = useState(false);
   const [drinkIsShow, drinkIsShown] = useState(true);
@@ -69,10 +66,15 @@ const SubMenuView = () => {
           Drinks
         </Button>
       </ButtonGroup>
-
-      <div className="fadeIn">
+      {/* show menu from client */}
+      {/* <div className="fadeIn">
         {isShown && <SubMenuDesserts />}
         {drinkIsShow && <SubMenuDrinks />}
+      </div> */}
+      {/* show menu from server */}
+      <div className="fadeIn">
+        {isShown && <Desserts />}
+        {drinkIsShow && <Drinks />}
       </div>
     </div>
   );

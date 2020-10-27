@@ -57,9 +57,8 @@ const token = jwt.sign({_id: user._id}, process.env.JWT_KEY);
 res.header('auth-token', token).status(200).json({
             message: 'Auth successful',
             token: token,
+            id: user._id
           });
-
-
 };
 
 exports.user_delete = (req, res, next) => {
@@ -77,3 +76,21 @@ exports.user_delete = (req, res, next) => {
       });
     });
 };
+
+exports.user_get = async (req, res, next) => {
+  User.find({}, function (err, users) {
+    if (err)
+      return next(err);
+    res.json(users)
+})
+};
+exports.user_getbyid = async (req, res, next) => {
+  User.findById(req.params.userId, function (err, user) {
+    if (err)
+      return next(err);
+    res.json(user)
+});
+};
+
+
+

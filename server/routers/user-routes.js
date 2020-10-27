@@ -10,5 +10,8 @@ router.post('/register',jsonParser, UserController.user_signup);
 router.post('/login',jsonParser, UserController.user_login);
 
 router.delete('/:userId', checkAuth, UserController.user_delete);
+router.get('/', UserController.user_get);
+router.get('/:userId', UserController.user_getbyid);
+
 
 module.exports = router;

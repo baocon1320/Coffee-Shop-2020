@@ -20,6 +20,8 @@ const menuRoutes = require('./routers/menu-routes');
 const orderRoutes = require('./routers/order-routes')
 
 const userRoutes = require('./routers/user-routes')
+const stripeRoutes = require('./routers/stripe-routes')
+
 // import HttpError model
 const HttpError = require('./models/http-error');
 // EJS
@@ -53,6 +55,8 @@ app.use('/products', menuRoutes);
 
 app.use('/orders', orderRoutes);
 app.use('/user', userRoutes)
+app.use('/checkout', stripeRoutes)
+
 // Handle unsupported routes erro
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route', 404);

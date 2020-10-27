@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import "./style.scss";
 function NavBar() {
   return (
@@ -34,6 +35,20 @@ function NavBar() {
           </NavLink>
           <NavLink className="nav-link" to="/Contact">
             Contact
+          </NavLink>
+
+          <NavLink className="nav-link" to="/Cart">
+            <ShoppingCartIcon/>
+          </NavLink>
+       
+          
+        </Nav>
+        <Nav>
+          <NavLink className="nav-link" to="/register">
+            register
+          </NavLink>
+          <NavLink className="nav-link" to="/login">
+            Login
           </NavLink>
         </Nav>
       </Navbar.Collapse>

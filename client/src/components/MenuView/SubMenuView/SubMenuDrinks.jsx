@@ -1,9 +1,10 @@
 import React from 'react';
-import DessertImages from '../../../../resouces/images/menuImages/dessertImages';
+import Card from 'react-bootstrap/Card';
+import DrinkImages from '../../../resouces/images/menuImages/drinkImages';
 import './SubMenu.scss';
-import { Card } from 'react-bootstrap';
-const SubMenuDesserts = () => {
-  const menuDesserts = DessertImages.map(function (image, i) {
+
+const SubMenuDrinks = () => {
+  const menuDrinks = DrinkImages.map(function (image, i) {
     return (
       <Card
         key={i}
@@ -25,7 +26,7 @@ const SubMenuDesserts = () => {
       </Card>
     );
   });
-  return <div className="SubMenuItems">{menuDesserts}</div>;
+  return <div className="SubMenuItems">{menuDrinks}</div>;
 };
 
-export default SubMenuDesserts;
+export default SubMenuDrinks;
