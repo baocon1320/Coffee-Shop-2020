@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import axios from 'axios';
+
 import "./style.scss";
-function NavBar() {
+function NavBar() { 
+
+  const [count, setCount] = useState(0)
+  const [load, setLoad] = useState(false);
+const accessToken = JSON.parse(localStorage.getItem('user'))
+
+  const authAxios = axios.create({
+    headers: {
+      'auth-token': accessToken,
+      'Content-Type': 'application/json'
+    }
+  })
+  let handleGetCartProducts = async() => {
+    await authAxios
+      .get('http://localhost:5000/orders')
+      .then((response) => {
+        setCount( response.data.count );
+        setLoad(true);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoad(false);
+      });
+   }; 
+   
+   useEffect(() =>{
+     handleGetCartProducts()
+   }, [])
+   console.log(count)
   return (
     <Navbar
       bg="black"
@@ -39,6 +69,7 @@ function NavBar() {
 
           <NavLink className="nav-link" to="/Cart">
             <ShoppingCartIcon/>
+            {count}
           </NavLink>
        
           

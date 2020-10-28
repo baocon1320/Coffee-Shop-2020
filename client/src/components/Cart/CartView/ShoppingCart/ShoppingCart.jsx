@@ -19,9 +19,6 @@ const authAxios = axios.create({
 export default class ShoppingCart extends Component {
   state = {
    cartList: [],
-
-   quantity: 0,
- 
    };
  
 

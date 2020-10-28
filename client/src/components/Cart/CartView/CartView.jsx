@@ -8,7 +8,7 @@ export default class CartView extends Component {
     render() {
         return (
             <div>
-        <IntroComponent introDetail={this.props.introDetail} />
+                <IntroComponent introDetail={this.props.introDetail} />
                 <ShoppingCart/>
                 <BestSeller />
             </div>
