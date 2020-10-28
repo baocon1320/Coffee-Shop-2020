@@ -1,3 +1,7 @@
+//did not use this component //
+//did not use this component //
+//did not use this component //
+
 import IntroComponent from '../CommonView/IntroComponent/IntroComponent';
 
 import BillingDetail from './BillingDetails/BillingDetail';
