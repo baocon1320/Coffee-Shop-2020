@@ -13,6 +13,7 @@ const getInfo =  async(req, res, next) => {
     let info;
     try {
         info = await Info.findOne();
+        //info = null;
         //console.log(info);
     } catch(err){
         const error = new HttpError('error when getting info', 500);

@@ -10,6 +10,8 @@ import React, { useState, Suspense, useEffect } from 'react';
 import introDetail from '../../resouces/Text/Intro/introDetail.js';
 import Footer from '../CommonView/Footer/Footer';
 import SpinnerView from '../CommonView/SpinnerView/SpinnerView';
+import AlertPanel from '../CommonView/AlertPanel/AlertPanel';// handle error
+import useHttpClient from '../../share/hook/http-hook';
 
 // Spliting code using lazy
 const MenuView = React.lazy(() => import('../MenuView/MenuView/MenuView'));
@@ -17,12 +19,23 @@ const MenuView = React.lazy(() => import('../MenuView/MenuView/MenuView'));
 //export default class App extends Component {
 function App() {
   const [infoData, setInfoData] = useState();
-  const [error, setError] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  //const [error, setError] = useState();
+  //const [alert, setAlert] = useState(false);
+  //const [isLoading, setIsLoading] = useState(false);
+
+  const {isLoading, alert, error, sendRequest, alertHandler} = useHttpClient();
+
 
   // useEffect to fetch the data for the first time only without redenring
   useEffect(() => {
-    const sendRequest = async () => {
+    const fetchData = async () => {
+      try{
+        const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + '/info');
+        setInfoData(responseData);
+      }  catch (err){
+
+      };
+      /*
       setIsLoading(true);
       try {
         const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/info');
@@ -30,7 +43,8 @@ function App() {
 
         // Thow error if the response code is 400 or 500 level
         if (!response.ok) {
-          throw new Error(responseData.message);
+          console.log(responseData.message + " response code " + response.status);
+          throw new Error(responseData.message + " response code " + response.status);
         }
 
 
@@ -38,17 +52,20 @@ function App() {
 
         // catching error
       } catch (err) {
+        console.log("homepage error " + err.message);
+        setAlert(true);
         setError(err.message);
       }
       setIsLoading(false);
+      */
     };
-    sendRequest();
+    fetchData();
 
-  }, []);// eslint-disable-line react-hooks/exhaustive-deps
+  }, [sendRequest]);
 
   return (
     <React.Fragment>
-   
+      <AlertPanel onClose={alertHandler} heading="HomePage Loading Error" content={error} alert={alert}></AlertPanel>
       {!isLoading && infoData &&
         <Router>
           <NavBar />
@@ -81,7 +98,6 @@ function App() {
             </Routes>
           </Suspense>
           <Footer infoData={infoData} />
-          <SpinnerView role="loading" />
         </Router>
       }
       {isLoading && <SpinnerView role="loading" />}  
