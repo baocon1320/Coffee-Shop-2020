@@ -10,17 +10,6 @@ const HttpError = require('../models/http-error');
 const getInfo = async (req, res, next) => {
   console.log('get info');
 
-<<<<<<< HEAD
-    let info;
-    try {
-        info = await Info.findOne();
-        //info = null;
-        //console.log(info);
-    } catch(err){
-        const error = new HttpError('error when getting info', 500);
-        return next(error);
-    }
-=======
   let info;
   try {
     info = await Info.findOne();
@@ -29,7 +18,6 @@ const getInfo = async (req, res, next) => {
     const error = new HttpError('error when getting info', 500);
     return next(error);
   }
->>>>>>> 23d8a7a9238fd898facc2ed6e51206953fef6bd9
 
   if (!info) {
     const error = new HttpError('info is undefined', 404);

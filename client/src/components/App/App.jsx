@@ -10,6 +10,8 @@ import React, { useState, Suspense, useEffect } from 'react';
 import introDetail from '../../resouces/Text/Intro/introDetail.js';
 import Footer from '../CommonView/Footer/Footer';
 import SpinnerView from '../CommonView/SpinnerView/SpinnerView';
+import AlertPanel from '../CommonView/AlertPanel/AlertPanel';// handle error
+import useHttpClient from '../../share/hook/http-hook';
 import CartView from '../Cart/CartView/CartView'
 import RegisterView from '../Register/RegisterView/RegisterView'
 import LoginView from '../Login/LoginView/LoginView'
@@ -61,7 +63,6 @@ function App() {
       setIsLoading(false);
       */
     };
-<<<<<<< HEAD
     fetchData();
 
   }, [sendRequest]);
@@ -69,15 +70,7 @@ function App() {
   return (
     <React.Fragment>
       <AlertPanel onClose={alertHandler} heading="HomePage Loading Error" content={error} alert={alert}></AlertPanel>
-      {!isLoading && infoData &&
-=======
-    sendRequest();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  return (
-    <React.Fragment>
       {!isLoading && infoData && (
->>>>>>> 23d8a7a9238fd898facc2ed6e51206953fef6bd9
         <Router>
           <NavBar />
           <Suspense
