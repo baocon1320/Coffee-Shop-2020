@@ -18,6 +18,10 @@ const introDetail = {
   about: { intro: 'ABOUT US', home: 'HOME' },
   blog: { intro: 'Blog', home: 'HOME' },
   contact: { intro: 'CONTACT US', home: 'HOME' },
+  cart:{intro: 'CART', home: 'HOME'},
+  checkout:{intro: 'CHECKOUT', home: 'HOME'},
+
+  
 };
 
 export default introDetail;
