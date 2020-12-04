@@ -139,7 +139,7 @@ const addNewItem = async (req, res, next) => {
     price: req.body.price,
     content: req.body.content,
     productImage: fileUrl,
-  });
+  }); 
   await product
     .save()
     .then((result) => {
