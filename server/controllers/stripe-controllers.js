@@ -1,5 +1,6 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const uuid = require("uuid/v4");
+//const uuid = require("uuid/v4");
+const { v4: uuid } = require('uuid');
 require("dotenv").config();
 
 exports.stripe_get_payment = ("/", (req, res) => {

@@ -4,7 +4,7 @@ import { Spinner } from "react-bootstrap";
 function SpinnerView(props) {
 
     return (
-        <div class="d-flex justify-content-center mt-5">
+        <div className="d-flex justify-content-center mt-5">
         <Spinner animation="border" role={props.role}>
             <span className="sr-only">Loading...</span>
         </Spinner>

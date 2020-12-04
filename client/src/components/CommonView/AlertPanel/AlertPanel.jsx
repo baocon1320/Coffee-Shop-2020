@@ -2,8 +2,6 @@ import React from "react";
 import {Modal, Button} from "react-bootstrap";
 
 function AlertPanel(props) {
-    console.log(props.alert);
-
     return (
         <Modal show={props.alert} onHide={() => props.onClose()}>
         <Modal.Header closeButton>
