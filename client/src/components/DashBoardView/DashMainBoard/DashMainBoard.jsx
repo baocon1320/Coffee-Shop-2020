@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 export default function DashMainBoard() {
   return (
     <div className="myTabPanel">
@@ -15,10 +15,10 @@ export default function DashMainBoard() {
                   className="MuiTableCell-root MuiTableCell-head jss1312"
                   scope="col"
                 >
-                  <h3 className="MuiBox-root jss1313">Order ID</h3>
+                  <h3 className="MuiBox-root jss41">Order ID</h3>
                 </th>
                 <th className="MuiTableCell-root MuiTableCell-head" scope="col">
-                  <h3 className="MuiBox-root jss1314">Date</h3>
+                  <h3 className="MuiBox-root jss41">Date</h3>
                 </th>
               </tr>
             </thead>

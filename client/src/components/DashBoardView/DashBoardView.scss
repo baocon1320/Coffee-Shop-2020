@@ -7,7 +7,7 @@
 }
 
 .dashboard-intro {
-  background-image: url('../../resouces/images/AboutImages/bg_2.jpg');
+  background-image: url("../../resouces/images/AboutImages/bg_2.jpg");
   padding-top: 1em;
   margin-top: 5em;
 
@@ -104,7 +104,7 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
   line-height: 1.75;
   border-radius: 4px;
@@ -116,4 +116,66 @@
 }
 .MuiButton-color-update {
   background-color: lightcoral;
+}
+.MuiTableContainer-root {
+  width: 100%;
+  overflow-x: auto;
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiTable-root {
+  width: 100%;
+  display: table;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.MuiTableHead-root {
+  display: table-header-group;
+}
+.MuiTableRow-root {
+  color: inherit;
+  display: table-row;
+  outline: 0;
+  vertical-align: middle;
+}
+.MuiTableCell-head {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+.MuiTableCell-root {
+  display: table-cell;
+  padding: 16px;
+  font-size: 0.875rem;
+  text-align: left;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  letter-spacing: 0.01071em;
+  vertical-align: inherit;
+}
+.jss40 {
+  width: 60%;
+}
+.MuiTableCell-head {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+.jss41 {
+  color: rgb(252, 184, 59);
+}
+// .stay-open,
+// .dropdown-menu,
+// .dropdown-menu.show {
+//   display: block !important;
+//   position: absolute;
+//   inset: 0px auto auto 0px;
+//   margin: 0px;
+//   transform: translate3d(0px, 40px, 0px);
+// }
+.stay-open {
+  display: block !important;
 }

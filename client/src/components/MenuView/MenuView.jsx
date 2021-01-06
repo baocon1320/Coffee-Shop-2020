@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
-import SubMenuView from './SubMenuView/SubMenuView.jsx';
-// import IntroComponent from '../../CommonView/IntroComponent/IntroComponent';
-import IntroComponent from '../CommonView/IntroComponent/IntroComponent';
-class MenuView extends Component {
-  render() {
-    return (
-      <div>
-        <IntroComponent introDetail={this.props.introDetail} />
+import SubMenuView from "./SubMenuView/SubMenuView.jsx";
+import IntroComponent from "../CommonView/IntroComponent/IntroComponent";
+import React from "react";
 
-        <SubMenuView />
-      </div>
-    );
-  }
+export default function MenuView(props) {
+  return (
+    <div>
+      <IntroComponent introDetail={props.introDetail} />
+      <SubMenuView />
+    </div>
+  );
 }
-
-export default MenuView;

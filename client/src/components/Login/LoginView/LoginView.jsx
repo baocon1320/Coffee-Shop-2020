@@ -1,74 +1,139 @@
-import React, { Component } from 'react'
-import FacebookIcon from '@material-ui/icons/Facebook';
-import axios from 'axios'
-import './loginView.scss'
-export default class LoginView extends Component {
-  state={
-    email: 'test1@test.com',
-    password: 'tester',
-}
-onChangeEmail = (event) =>{
-    this.setState({email: event.target.value})
-}
-onChangePassword = (event) =>{
-    this.setState({password: event.target.value})
-}
+import FacebookIcon from "@material-ui/icons/Facebook";
+import "./loginView.scss";
 
-handleSubmit = async(event) =>{
-    event.preventDefault()
-const userData = {
-email: this.state.email,
-password: this.state.password
-}
-console.log(userData)
-let axiosConfig = {
-headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-}
-};
-await axios.post('http://localhost:5000/user/login', userData, axiosConfig).then((res) =>{
-localStorage.setItem('user', JSON.stringify(res.data.token))
-localStorage.setItem('userID', JSON.stringify(res.data.id))
-window.location.href = "/"
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+// import Layout from "../core/Layout";
+import { signin, authenticate, isAuthenticated } from "../../auth/";
 
-}).catch((error) =>{
-console.log(error)
-})
+const LoginView = () => {
+  const [values, setValues] = useState({
+    email: "tester1@tester.com",
+    password: "tester1",
+    error: "",
+    loading: false,
+    redirectToReferrer: false,
+  });
 
-}
-    render() {
-        return (
-            <div class="container login-container">
-            <div class="row">
-              <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
-                  <div class="card-body">
-                    <h5 class="card-title text-center">Sign In</h5>
-                    <form class="form-signin">
-                      <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus value={this.state.email} onChange={this.onChangeEmail}/>
-                        <label for="inputEmail">Email address</label>
-                      </div>
-        
-                      <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required value = {this.state.password} onChange={this.onChangePassword}/>
-                        <label for="inputPassword">Password</label>
-                      </div>
-        
-                      <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1"/>
-                        <label class="custom-control-label" for="customCheck1">Remember password</label>
-                      </div>
-                      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"  onClick={this.handleSubmit}>Sign in</button>
-                      <hr class="my-4"/>
-                      
-                      <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><FacebookIcon className="btn-facebook"/> Sign in with Facebook</button>
-                    </form>
-                  </div>
-                </div>
+  const { email, password, loading, error, redirectToReferrer } = values;
+  const { user } = isAuthenticated();
+
+  const handleChange = (name) => (event) => {
+    setValues({ ...values, error: false, [name]: event.target.value });
+  };
+
+  const clickSubmit = (event) => {
+    event.preventDefault();
+    setValues({ ...values, error: false, loading: true });
+    signin({ email, password }).then((data) => {
+      if (data.error) {
+        setValues({ ...values, error: data.error, loading: false });
+      } else {
+        authenticate(data, () => {
+          setValues({
+            ...values,
+            redirectToReferrer: true,
+          });
+        });
+      }
+    });
+  };
+
+  const signUpForm = () => (
+    <form class="form-signin">
+      <div class="form-label-group">
+        <input
+          onChange={handleChange("email")}
+          type="email"
+          className="form-control"
+          value={email}
+        />
+        <label for="inputEmail">Email address</label>
+      </div>
+
+      <div class="form-label-group">
+        <input
+          onChange={handleChange("password")}
+          type="password"
+          className="form-control"
+          value={password}
+        />
+        <label for="inputPassword">Password</label>
+      </div>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="customCheck1" />
+        <label class="custom-control-label" for="customCheck1">
+          Remember password
+        </label>
+      </div>
+      <button
+        class="btn btn-lg btn-primary btn-block text-uppercase"
+        type="submit"
+        onClick={clickSubmit}
+      >
+        Sign in
+      </button>
+
+      <hr class="my-4" />
+
+      <button
+        class="btn btn-lg btn-facebook btn-block text-uppercase"
+        type="submit"
+      >
+        <FacebookIcon className="btn-facebook" /> Sign in with Facebook
+      </button>
+    </form>
+  );
+
+  const showError = () => (
+    <div
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      {error}
+    </div>
+  );
+
+  const showLoading = () =>
+    loading && (
+      <div className="alert alert-info">
+        <h2>Loading...</h2>
+      </div>
+    );
+
+  const redirectUser = () => {
+    if (redirectToReferrer) {
+      if (user && user.role === 1) {
+        return <Redirect to="/admin/dashboard" />;
+      } else {
+        return <Redirect to="/user/dashboard" />;
+      }
+    }
+    if (isAuthenticated()) {
+      return <Redirect to="/" />;
+    }
+  };
+
+  return (
+    <div class="container login-container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h5 class="card-title text-center">Sign In</h5>
+              <div>
+                {showLoading()}
+                {showError()}
+                {signUpForm()}
+                {redirectUser()}
               </div>
             </div>
           </div>
-        )
-    }
-}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginView;

@@ -1,6 +1,11 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { isAuthenticated } from "../../auth";
 
-export default function DashAccInfo() {
+export default function DashAccInfo(props) {
+  const {
+    user: { _id, name, email, role },
+  } = isAuthenticated();
   return (
     <div className="myTabPanel">
       <div className="infoAccount fade-panel-enter-done">
@@ -14,7 +19,7 @@ export default function DashAccInfo() {
                 name="name"
                 type="text"
                 className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
-                defaultValue="tester"
+                value={props.userInfo.UserInfo[0]}
               />
             </div>
           </div>
@@ -28,7 +33,7 @@ export default function DashAccInfo() {
                 name="email"
                 type="text"
                 className="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
-                defaultValue="tester2@tester2.com"
+                value={props.userInfo.UserInfo[1]}
               />
             </div>
           </div>
@@ -38,16 +43,12 @@ export default function DashAccInfo() {
               tabIndex={0}
               type="button"
             >
-              <span className="MuiButton-label">Change password</span>
-            </button>
-          </div>
-          <div className="infoAccount__submit">
-            <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-color-update"
-              tabIndex={0}
-              type="submit"
-            >
-              <span className="MuiButton-color-update">Update Infomation</span>
+              <span className="MuiButton-label">
+                {" "}
+                <Link className="nav-link" to={`/profile/${_id}`}>
+                  Update Profile
+                </Link>
+              </span>
             </button>
           </div>
         </form>

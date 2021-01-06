@@ -1,17 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser')
-const jsonParser = bodyParser.json()
-const UserController = require('../controllers/user.controllers');
-const checkAuth = require('../middleware/check-auth');
 
-router.post('/register',jsonParser, UserController.user_signup);
+const { requireSignin, isAuth, isAdmin } = require('../controllers/auth-control');
 
-router.post('/login',jsonParser, UserController.user_login);
+const { userById, read, update, purchaseHistory } = require('../controllers/user-control');
 
-router.delete('/:userId', checkAuth, UserController.user_delete);
-router.get('/', UserController.user_get);
-router.get('/:userId', UserController.user_getbyid);
+router.get('/secret', requireSignin, (req, res) => {
+    res.json({
+        // user: req.profile
+        user: 'secret route'
+    });
+});
+router.get('/secret/:userId', requireSignin, (req, res) => {
+    res.json({
+        user: req.profile
+        // user: 'secret route'
+    });
+});
 
+router.get('/user/:userId', requireSignin, isAuth, read);
+router.put('/user/:userId', requireSignin, isAuth, update);
+router.get('/orders/by/user/:userId', requireSignin, isAuth, purchaseHistory);
+
+router.param('userId', userById);
 
 module.exports = router;

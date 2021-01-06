@@ -1,14 +1,14 @@
-import React from 'react';
-import Card from 'react-bootstrap/Card';
-import DrinkImages from '../../../resouces/images/menuImages/drinkImages';
-import './SubMenu.scss';
+import React from "react";
+import Card from "react-bootstrap/Card";
+import DrinkImages from "../../../../resouces/images/menuImages/drinkImages";
+import "./SubMenu.scss";
 
 const SubMenuDrinks = () => {
   const menuDrinks = DrinkImages.map(function (image, i) {
     return (
       <Card
         key={i}
-        style={{ width: '18rem' }}
+        style={{ width: "18rem" }}
         className="bg-transparent border-transparent"
       >
         <Card.Img
@@ -22,7 +22,7 @@ const SubMenuDrinks = () => {
           <Card.Title>{image.title}</Card.Title>
           <Card.Text>{image.content}</Card.Text>
           <p>{image.price}</p>
-        </Card.Body>{' '}
+        </Card.Body>{" "}
       </Card>
     );
   });

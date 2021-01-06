@@ -1,13 +1,13 @@
-import React from 'react';
-import DessertImages from '../../../resouces/images/menuImages/dessertImages';
-import './SubMenu.scss';
-import { Card } from 'react-bootstrap';
+import React from "react";
+import DessertImages from "../../../../resouces/images/menuImages/dessertImages";
+import "./SubMenu.scss";
+import { Card } from "react-bootstrap";
 const SubMenuDesserts = () => {
   const menuDesserts = DessertImages.map(function (image, i) {
     return (
       <Card
         key={i}
-        style={{ width: '18rem' }}
+        style={{ width: "18rem" }}
         className="bg-transparent border-transparent"
       >
         <Card.Img
@@ -21,7 +21,7 @@ const SubMenuDesserts = () => {
           <Card.Title>{image.title}</Card.Title>
           <Card.Text>{image.content}</Card.Text>
           <p>{image.price}</p>
-        </Card.Body>{' '}
+        </Card.Body>{" "}
       </Card>
     );
   });

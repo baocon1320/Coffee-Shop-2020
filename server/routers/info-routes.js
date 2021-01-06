@@ -3,7 +3,6 @@ const express = require('express');
 
 // import infoController
 const infoControllers = require('../controllers/info-controllers');
-const { route } = require('./menu-routes');
 
 // using Router
 const router = express.Router();
