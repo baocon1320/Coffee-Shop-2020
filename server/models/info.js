@@ -19,6 +19,10 @@ const infoSchema = new Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     images: [{
         src: {
             type: String,
@@ -26,15 +30,12 @@ const infoSchema = new Schema({
         }, 
         alt: {
             type: String,
-            required: false
         },
         title: {
             type: String,
-            required: true
         },
         content: {
             type: String,
-            required: true
         }
     }],
     intro: {
@@ -62,7 +63,15 @@ const infoSchema = new Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    menuImage: {
+        type: String,
+        required: true
+    },
+    contactImage: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Info', infoSchema);

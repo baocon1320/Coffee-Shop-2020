@@ -8,7 +8,7 @@ const introDetail = {
     hours: '8:00am - 9:00pm',
   },
   menu: {
-    intro: 'Our Menu',
+    intro: 'OUR MENU',
     home: 'HOME',
   },
   services: {

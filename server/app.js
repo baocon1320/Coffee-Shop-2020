@@ -6,29 +6,54 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
-const app = express();
-app.use(cors());
 
-//HTTP request logger
-app.use(morgan('tiny'));
-// For info routes
+
+// cors
+//var cors = require('cors')
+
+// For handle delete file
+const fs = require('fs');
+
+// For passport and session
+const session = require('express-session');
+const passport = require('passport');
+const passportSetup = require("./config/passport-setup"); // important setup passport
+
+
+// import Manager model
+const Manager = require('./models/manager');
+
+// For Oauth 2
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+// For routes
 const infoRoutes = require('./routers/info-routes');
-
-// For menu routes
-const menuRoutes = require('./routers/menu-routes');
-
+const categoryRoutes = require('./routers/category-routes');
+const productRoutes = require('./routers/product-routes');
 const orderRoutes = require('./routers/order-routes')
-
 const userRoutes = require('./routers/user-routes')
 const stripeRoutes = require('./routers/stripe-routes')
+const authRoutes = require('./routers/auth-routers');
 
 // import HttpError model
 const HttpError = require('./models/http-error');
+
+const app = express();
+//app.use(cors());
+
+//HTTP request logger
+app.use(morgan('tiny'));
+
 // EJS
 app.set('view engine', 'ejs');
 app.get('/menuform', (req, res) => res.render('menu-form'));
 // For bodyParser
 app.use(bodyParser.json());
+
+
+//Frontend URL
+const frontendURL = process.env.REACT_APP_FRONTEND_URL;
+
 
 // serving file from server, this case for uploaded images
 // app.use('/uploads/images', express.static(path.join('uploads', 'images')));
@@ -36,6 +61,7 @@ app.use(bodyParser.json());
 // make photo static
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+/*
 // set CORS headers avoid CORS error
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -43,28 +69,60 @@ app.use((req, res, next) => {
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   );
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
 
   next();
 });
+*/
+
+// set up cors to allow us to accept requests from our client
+app.use(
+  cors({
+    origin: frontendURL, // allow to server to accept request from different origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true // allow session cookie from browser to pass through
+  })
+);
+
+// Session for loging 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { _expires: (10 * 60 * 1000) }
+}))
+
+// initialize passport for express application
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // use routes
+app.use('/auth', authRoutes)
 app.use('/info', infoRoutes);
-// app.use('/menu', menuRoutes);
-app.use('/products', menuRoutes);
+app.use('/category', categoryRoutes)
 
+// app.use('/menu', menuRoutes);
+app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/user', userRoutes)
 app.use('/checkout', stripeRoutes)
+
 
 // Handle unsupported routes erro
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route', 404);
   throw error;
 });
+
 // app.use(express.static('./uploads'));
 // handling error
 app.use((error, req, res, next) => {
+  if (req.file) {
+    fs.unlink(req.file.path, err => {
+      console.log(err);
+    });
+  }
   if (res.headerSent) {
     return next(error);
   }
@@ -99,7 +157,7 @@ mongoose
   .connect(dbConnect, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex:true,
+    useCreateIndex: true,
   })
   .then(() => {
     // app.listen(port, function (res) {

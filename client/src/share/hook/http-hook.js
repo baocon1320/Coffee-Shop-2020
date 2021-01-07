@@ -12,13 +12,14 @@ function useHttpClient() {
     }
 
    
-        const sendRequest = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
+        const sendRequest = useCallback(async (url, method = 'GET', 
+        body = null, headers = {}, credentials = 'same-origin') => {
             setIsLoading(true);
             const httpAbortCtrl =  new AbortController();
             activeHttpRequests.current.push(httpAbortCtrl)
             try {
                 const response = await fetch(
-                    url, {method, body, headers, signal: httpAbortCtrl.signal}
+                    url, {method, credentials, body, headers, signal: httpAbortCtrl.signal}
                 );
                 const responseData = await response.json();
 
@@ -35,7 +36,7 @@ function useHttpClient() {
 
                 // catching error
             } catch (err) {
-                //console.log("homepage error " + err.message);
+                console.log("homepage error " + err.message);
                 setAlert(true);
                 setError(err.message);
                 setIsLoading(false);
